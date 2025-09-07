@@ -1,18 +1,12 @@
 "use client";
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Button from '../../atoms/buttons';
 import Logo from '../../atoms/logo';
 import { MapPin, Mail, Phone, Facebook, Twitter, Instagram, Linkedin, ChevronDown, Globe } from 'lucide-react';
 
 const Navbar = () => {
-  const router = useRouter();
-
-  const handleNavigation = (path) => {
-    router.push(path);
-  };
-
   return (
     <header className="w-full">
       {/* Top Info Bar */}
@@ -62,32 +56,18 @@ const Navbar = () => {
 
             {/* Navigation Links */}
             <div className="hidden md:flex items-center" style={{ width: '442.5px', height: '13px', gap: '34px', opacity: 0.8 }}>
-              <div className="relative group">
-                <button 
-                  onClick={() => handleNavigation('/about/about-hrn')}
-                  className="text-gray-700 hover:text-primary transition-colors text-lg font-normal leading-[27px] flex items-center"
-                >
-                  About
-                  <ChevronDown className="ml-1 w-4 h-4" />
-                </button>
-                {/* About Dropdown */}
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] pointer-events-none group-hover:pointer-events-auto">
-                  <div className="py-2">
-                    <button 
-                      onClick={() => handleNavigation('/about/about-hrn')}
-                      className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors"
-                    >
-                      About HRN
-                    </button>
-                    <button 
-                      onClick={() => handleNavigation('/about/our-team')}
-                      className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors"
-                    >
-                      Our Team
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <Link 
+                href="/about/about-hrn"
+                className="text-gray-700 hover:text-primary transition-colors text-lg font-normal leading-[27px] cursor-pointer"
+              >
+                About HRN
+              </Link>
+              <Link 
+                href="/about/our-team"
+                className="text-gray-700 hover:text-primary transition-colors text-lg font-normal leading-[27px] cursor-pointer"
+              >
+                Our Team
+              </Link>
               <div className="relative group">
                 <a href="#" className="text-gray-700 hover:text-primary transition-colors text-lg font-normal leading-[27px] flex items-center">
                   Services

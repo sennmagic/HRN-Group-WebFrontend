@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 const Logo = ({ 
@@ -16,7 +17,7 @@ const Logo = ({
   const currentSize = sizeClasses[size];
 
   return (
-    <div className={`flex items-center ${className}`}>
+    <Link href="/" className={`flex items-center ${className} cursor-pointer`}>
       <div className={`${currentSize.image} relative mr-3`}>
         <Image
           src="/logo.png"
@@ -31,7 +32,7 @@ const Logo = ({
           <span className="text-primary">N</span>
         </div>
       )}
-    </div>
+    </Link>
   );
 };
 
