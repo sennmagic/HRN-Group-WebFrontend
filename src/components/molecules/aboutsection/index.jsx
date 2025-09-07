@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import Header from '@/components/atoms/header';
 import Button from '@/components/atoms/buttons';
 
@@ -8,6 +9,7 @@ const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [animatedValue, setAnimatedValue] = useState(0);
   const sectionRef = useRef(null);
+  const router = useRouter();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -142,7 +144,7 @@ const AboutSection = () => {
               <Button 
                 variant="primary"
                 className="w-full sm:w-auto"
-                onClick={() => console.log('Learn More clicked')}
+                onClick={() => router.push('/about/about-us')}
               >
                 Learn More
               </Button>

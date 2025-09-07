@@ -2,8 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  
+ 
   /* Primary and Secondary Colors */
   --primary: #0D92F4;
   --primary-light: #77CDFF;
@@ -30,7 +29,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+  
     --foreground: #ededed;
   }
 }
@@ -54,4 +53,17 @@ body {
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Navbar dropdown fixes */
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1 !important;
+}
+
+.group:hover .group-hover\:visible {
+  visibility: visible !important;
+}
+
+.group:hover .group-hover\:pointer-events-auto {
+  pointer-events: auto !important;
 }

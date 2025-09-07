@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import Header from '@/components/atoms/header';
 import Button from '@/components/atoms/buttons';
 
 const TeamSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const router = useRouter();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -177,7 +179,7 @@ const TeamSection = () => {
         <div className="flex justify-center">
           <Button 
             variant="primary"
-            onClick={() => console.log('View All Team clicked')}
+            onClick={() => router.push('/our-team')}
           >
             View All Team
           </Button>

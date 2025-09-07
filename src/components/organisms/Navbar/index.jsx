@@ -1,10 +1,18 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Button from '../../atoms/buttons';
+import Logo from '../../atoms/logo';
 import { MapPin, Mail, Phone, Facebook, Twitter, Instagram, Linkedin, ChevronDown, Globe } from 'lucide-react';
 
 const Navbar = () => {
+  const router = useRouter();
+
+  const handleNavigation = (path) => {
+    router.push(path);
+  };
+
   return (
     <header className="w-full">
       {/* Top Info Bar */}
@@ -46,32 +54,65 @@ const Navbar = () => {
       </div>
 
       {/* Main Navigation */}
-      <nav className="bg-white shadow-sm">
+      <nav className="bg-white shadow-sm border-t-4 border-primary">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <div className="flex items-center">
-              <div className="w-12 h-12 rounded-full border-4 border-primary flex items-center justify-center">
-                <div className="text-lg font-bold">
-                  <span className="text-secondary">HR</span>
-                  <span className="text-primary">N</span>
-                </div>
-              </div>
-            </div>
+            <Logo size="md" showText={false} />
 
             {/* Navigation Links */}
             <div className="hidden md:flex items-center" style={{ width: '442.5px', height: '13px', gap: '34px', opacity: 0.8 }}>
-              <a href="#" className="text-gray-700 hover:text-primary transition-colors text-lg font-normal leading-[27px]">
-                About
-              </a>
-              <a href="#" className="text-gray-700 hover:text-primary transition-colors text-lg font-normal leading-[27px]">
-                How It Works
-              </a>
+              <div className="relative group">
+                <button 
+                  onClick={() => handleNavigation('/about/about-hrn')}
+                  className="text-gray-700 hover:text-primary transition-colors text-lg font-normal leading-[27px] flex items-center"
+                >
+                  About
+                  <ChevronDown className="ml-1 w-4 h-4" />
+                </button>
+                {/* About Dropdown */}
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] pointer-events-none group-hover:pointer-events-auto">
+                  <div className="py-2">
+                    <button 
+                      onClick={() => handleNavigation('/about/about-hrn')}
+                      className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors"
+                    >
+                      About HRN
+                    </button>
+                    <button 
+                      onClick={() => handleNavigation('/about/our-team')}
+                      className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors"
+                    >
+                      Our Team
+                    </button>
+                  </div>
+                </div>
+              </div>
               <div className="relative group">
                 <a href="#" className="text-gray-700 hover:text-primary transition-colors text-lg font-normal leading-[27px] flex items-center">
                   Services
                   <ChevronDown className="ml-1 w-4 h-4" />
                 </a>
+                {/* Services Dropdown */}
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] pointer-events-none group-hover:pointer-events-auto">
+                  <div className="py-2">
+                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors">
+                      Interview Assistance
+                    </a>
+                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors">
+                      Visa Guidance
+                    </a>
+                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors">
+                      JPLT Training
+                    </a>
+                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors">
+                      SSW Program
+                    </a>
+                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors">
+                      Better Results
+                    </a>
+                  </div>
+                </div>
               </div>
               <a href="#" className="text-gray-700 hover:text-primary transition-colors text-lg font-normal leading-[27px]">
                 Blogs
@@ -80,7 +121,10 @@ const Navbar = () => {
 
             {/* Right Side - Buttons and Language */}
             <div className="flex items-center space-x-4">
-              <Button variant="primary">
+              <Button 
+                variant="primary"
+                onClick={() => handleNavigation('/contact')}
+              >
                 Contact Us
               </Button>
               
