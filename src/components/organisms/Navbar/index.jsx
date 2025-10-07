@@ -118,7 +118,7 @@ const Navbar = () => {
                 Login
               </Link>
               
-              <div className="flex items-center space-x-1 cursor-pointer hover:text-primary transition-colors text-lg font-normal leading-[27px]">
+              <div className="flex items-center space-x-1 cursor-pointer text-primary transition-colors text-lg font-normal leading-[27px]">
                 <Globe className="w-4 h-4" />
                 <ChevronDown className="w-3 h-3" />
               </div>
