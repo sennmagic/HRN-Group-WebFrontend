@@ -7,7 +7,8 @@ const Breadcrumb = ({
   className = '',
   showHome = true,
   title = '',
-  withContainer = false
+  withContainer = false,
+  alignmentClass = 'justify-center'
 }) => {
   const breadcrumbItems = showHome 
     ? [{ label: 'Home', href: '/', icon: Home }, ...items]
@@ -49,7 +50,7 @@ const Breadcrumb = ({
       >
         <div className="max-w-4xl mx-auto px-4 text-center">
           {/* Breadcrumb */}
-          <div className="mb-8 flex justify-center">
+          <div className={`mb-8 flex ${alignmentClass}`}>
             {breadcrumbNav}
           </div>
           
@@ -64,7 +65,11 @@ const Breadcrumb = ({
     );
   }
 
-  return breadcrumbNav;
+  return (
+    <div className={`max-w-7xl mx-auto px-4 flex ${alignmentClass}`}>
+      {breadcrumbNav}
+    </div>
+  );
 };
 
 export default Breadcrumb;

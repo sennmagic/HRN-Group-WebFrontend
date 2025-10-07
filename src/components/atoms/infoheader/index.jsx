@@ -5,7 +5,9 @@ const InfoHeader = ({
   className = '', 
   align = 'left', 
   size = 'medium',
-  variant = 'default' // default, accent, muted
+  variant = 'default', // default, accent, muted
+  titleClass = '',
+  borderClass = 'border-primary/20'
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const headerRef = useRef(null);
@@ -60,7 +62,7 @@ const InfoHeader = ({
   return (
     <h2 
       ref={headerRef}
-      className={`font-semibold ${sizeClasses} leading-tight tracking-tight mb-6 ${alignmentClass} ${variantClasses} ${className} transition-all duration-700 ease-out ${
+      className={`font-semibold ${sizeClasses} leading-tight tracking-tight mb-6 ${alignmentClass} ${variantClasses} ${titleClass} ${className} transition-all duration-700 ease-out ${
         isVisible 
           ? 'opacity-100 translate-y-0 scale-100' 
           : 'opacity-0 translate-y-8 scale-95'

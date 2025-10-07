@@ -39,13 +39,16 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-gray-800 font-semibold text-lg">Subscribe to our Newsletter</h3>
             <p className="text-gray-600 text-sm">Stay informed. stay ahead with hrn group</p>
-            <div className="flex">
+            <div className="flex items-center rounded-full border border-gray-300 bg-white shadow-sm transition focus-within:border-primary focus-within:shadow-md">
+              <span className="pl-4 pr-2 text-primary">
+                <Mail className="w-4 h-4" />
+              </span>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-l-md text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                className="flex-1 px-3 py-3 bg-transparent border-0 rounded-l-full text-sm sm:text-base focus:outline-none placeholder:text-primary"
               />
-              <Button variant="primary" className="rounded-l-none px-4">
+              <Button variant="primary" className="rounded-l-none rounded-r-full px-6 py-3">
                 Subscribe
               </Button>
             </div>

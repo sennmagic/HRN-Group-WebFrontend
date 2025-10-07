@@ -16,6 +16,7 @@ const AboutHrnPage = () => {
         items={breadcrumbItems} 
         withContainer={true}
         title="Empowering nepali youth for global opportunities"
+       
       />
             <AboutSection />
       <OurMissionVision />

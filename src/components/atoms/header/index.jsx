@@ -1,3 +1,4 @@
+"use"
 import React, { useEffect, useRef, useState } from 'react';
 
 const Header = ({ 
@@ -6,7 +7,10 @@ const Header = ({
   align = 'left', 
   size = 'medium',
   variant = 'large', // 'large' for main headers, 'small' for tag headers, 'with-badge' for header with badge
-  badge = null // badge text to display above the main header
+  badge = null, // badge text to display above the main header
+  // Optional dynamic style overrides (defaults preserve existing colors)
+  titleClass = '',
+  badgeClass = ''
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -65,7 +69,7 @@ const Header = ({
     return (
       <div 
         ref={headerRef}
-        className={`inline-block ${className} transition-all duration-700 ease-out ${
+        className={`inline-block ${className} ${badgeClass || ''} transition-all duration-700 ease-out ${
           isVisible 
             ? 'opacity-100 translate-y-0 scale-100 blur-0' 
             : isAnimating
@@ -93,13 +97,13 @@ const Header = ({
         }}
       >
         <span 
-          className="text-sm font-medium"
+          className={`text-sm font-medium ${badgeClass} block w-full`}
           style={{
             fontFamily: 'var(--font-plus-jakarta-sans)',
             fontWeight: 500,
             lineHeight: '100%',
             letterSpacing: '0%',
-            color: '#ED1B24'
+            color: badgeClass ? undefined : '#ED1B24'
           }}
         >
           {text || 'Who We Are'}
@@ -128,14 +132,14 @@ const Header = ({
       >
         {/* Badge */}
         {badge && (
-          <div className="mb-6">
+          <div className={`mb-6 ${alignmentClass} ${badgeClass || ''}`}>
             <div 
-              className="inline-block"
+              className={`inline-block ${badgeClass ? `border ${badgeClass}` : ''}`}
               style={{
                 width: '160px',
                 height: '42px',
                 borderRadius: '42px',
-                border: '1px solid #0000004D',
+                border: badgeClass ? undefined : '1px solid #0000004D',
                 paddingTop: '15px',
                 paddingRight: '20px',
                 paddingBottom: '15px',
@@ -148,13 +152,13 @@ const Header = ({
               }}
             >
               <span 
-                className="text-sm font-medium"
+                className={`text-sm font-medium ${badgeClass} block w-full text-center`}
                 style={{
                   fontFamily: 'var(--font-plus-jakarta-sans)',
                   fontWeight: 500,
                   lineHeight: '100%',
                   letterSpacing: '0%',
-                  color: '#ED1B24'
+                  color: badgeClass ? undefined : '#ED1B24'
                 }}
               >
                 {badge}
@@ -165,13 +169,13 @@ const Header = ({
 
         {/* Main Title */}
         <h2 
-          className={`font-bold ${sizeClasses} leading-tight tracking-tight ${alignmentClass}`}
+          className={`font-bold ${sizeClasses} leading-tight tracking-tight ${alignmentClass} ${titleClass}`}
           style={{
             fontFamily: 'var(--font-plus-jakarta-sans)',
             fontWeight: 700,
             lineHeight: '100%',
             letterSpacing: '-1%',
-            color: '#041926'
+            color: titleClass ? undefined : '#041926'
           }}
         >
           {text}
@@ -184,7 +188,7 @@ const Header = ({
   return (
     <h1 
       ref={headerRef}
-      className={`font-bold ${sizeClasses} leading-tight tracking-tight mb-8 ${alignmentClass} ${className} transition-all duration-700 ease-out ${
+      className={`font-bold ${sizeClasses} leading-tight tracking-tight mb-8 ${alignmentClass} ${titleClass} ${className} transition-all duration-700 ease-out ${
         isVisible 
           ? 'opacity-100 translate-y-0 scale-100 blur-0' 
           : isAnimating
@@ -196,7 +200,7 @@ const Header = ({
         fontWeight: 700,
         lineHeight: '100%',
         letterSpacing: '-1%',
-        color: '#041926',
+        color: titleClass ? undefined : '#041926',
         transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(32px) scale(0.95)',
         filter: isVisible ? 'blur(0px)' : 'blur(2px)',
         transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'

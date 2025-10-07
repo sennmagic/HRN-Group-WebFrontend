@@ -76,7 +76,11 @@ const TestimonialsSection = () => {
               text="Stories of success"
               badge="Testimonials"
               size="medium"
-              align="center"
+           
+             color='white'
+             titleClass='text-white'
+      badgeClass='text-white !text-center'
+
             />
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Header from '@/components/atoms/header';
+import Link from 'next/link';
 
 const BlogSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -77,9 +78,10 @@ const BlogSection = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         } transition-all duration-700 delay-200`}>
           {blogPosts.map((post, index) => (
-            <div
+            <Link
               key={post.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              href={`/blog/${post.id}`}
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 block"
               style={{
                 transform: isVisible ? 'translateY(0)' : 'translateY(32px)',
                 transition: `all 0.7s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`
@@ -125,7 +127,7 @@ const BlogSection = () => {
                   {post.date}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

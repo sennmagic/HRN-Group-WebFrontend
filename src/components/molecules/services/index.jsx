@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Header from '@/components/atoms/header';
 import Button from '@/components/atoms/buttons';
+import Link from 'next/link';
 
 const ServicesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -83,9 +84,10 @@ const ServicesSection = () => {
         {/* Services Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
           {services.map((service, index) => (
-            <div
+            <Link
               key={index}
-              className={`bg-white shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col w-full max-w-sm ${
+              href={`/services/${index + 1}`}
+              className={`bg-white shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col w-full max-w-sm cursor-pointer ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{
@@ -126,18 +128,12 @@ const ServicesSection = () => {
                   {service.description}
                 </p>
 
-                {/* Learn More Button */}
+                {/* Learn More Call to Action */}
                 <div className="mt-auto">
-                  <Button 
-                    variant="primary"
-                    className="w-full sm:w-auto text-sm sm:text-base"
-                    onClick={() => console.log(`Learn more about ${service.title}`)}
-                  >
-                    Learn More
-                  </Button>
+                  <span className="inline-flex items-center text-primary font-medium">Learn More →</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -96,19 +96,14 @@ const FAQSection = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-lg overflow-hidden transition-all duration-300"
-                style={{
-                  width: '715px',
-                  height: '91px',
-             
-                }}
+                className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 w-full"
               >
                 {/* Question */}
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-100 transition-colors"
+                  className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-100 transition-colors cursor-pointer"
                 >
-                  <span className="font-semibold text-gray-800 pr-4">
+                  <span className="font-semibold text-gray-800 pr-4 text-base sm:text-lg">
                     {faq.question}
                   </span>
                   <div className="flex-shrink-0">
@@ -126,8 +121,8 @@ const FAQSection = () => {
 
                 {/* Answer */}
                 {openIndex === index && (
-                  <div className="px-6 pb-4">
-                    <p className="text-gray-600 leading-relaxed">
+                  <div className="px-6 pb-6 pt-2">
+                    <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
                       {faq.answer}
                     </p>
                   </div>

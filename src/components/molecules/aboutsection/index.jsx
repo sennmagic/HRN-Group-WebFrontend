@@ -56,7 +56,6 @@ const AboutSection = () => {
     }, stepDuration);
   };
 
-  console.log('AboutSection rendering, isVisible:', isVisible);
   
   return (
     <section 
