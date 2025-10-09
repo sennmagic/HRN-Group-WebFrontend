@@ -23,42 +23,30 @@ export default function Home() {
     {
       title: "Nepal Agriculture",
       images: {
-        small: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=120&h=80&fit=crop&crop=face",
+        small: "./hanazuki.jpg",
         big: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=400&h=300&fit=crop&crop=face"
       }
     },
     {
       title: "Japan Technology",
       images: {
-        small: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=120&h=80&fit=crop&crop=face",
+        small: "./hrngroup.jpg",
         big: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop&crop=face"
       }
     },
     {
       title: "Culinary Arts",
       images: {
-        small: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=80&fit=crop&crop=face",
+        small: "./reiwa.png",
         big: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=face"
       }
     },
-    {
-      title: "Office Management",
-      images: {
-        small: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=120&h=80&fit=crop&crop=face",
-        big: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop&crop=face"
-      }
-    },
-    {
-      title: "Healthcare",
-      images: {
-        small: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=120&h=80&fit=crop&crop=face",
-        big: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=face"
-      }
-    },
+   
+  
     {
       title: "Construction",
       images: {
-        small: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=120&h=80&fit=crop&crop=face",
+        small: "./trainingha.png",
         big: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=300&fit=crop&crop=face"
       }
     }
