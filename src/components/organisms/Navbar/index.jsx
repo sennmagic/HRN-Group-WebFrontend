@@ -16,7 +16,7 @@ const Navbar = () => {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
 
   const languages = [
-    { code: 'nepal', name: 'Nepal', countryCode: 'NP' },
+    { code: 'nepal', name: 'Nepal', countryCode: 'US' },
     { code: 'japan', name: 'Japan', countryCode: 'JP' }
   ];
 
