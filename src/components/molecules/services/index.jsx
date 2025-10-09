@@ -37,19 +37,19 @@ const ServicesSection = () => {
 
   const services = [
     {
-      title: "Specified skilled worker (ssw) - part 1",
+      title: "Specified Skilled Worker (SSW) - Part 1",
       description: "We provide complete preparation for the specified skilled worker (ssw) visa, a japanese government-approved program that allows skilled nepali youth to work in 14 labor-scarce industries in japan.",
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop&crop=face",
       alt: "Skilled worker in construction gear"
     },
     {
-      title: "Technical intern training program (TITP)",
+      title: "Technical Intern Training Program (TITP)",
       description: "The technical intern training program (titp) offers young individuals from nepal a chance to gain real-world work experience in japan's industries. It's a great way to build career skills abroad.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&crop=face",
       alt: "Technical training in office setting"
     },
     {
-      title: "Student visa for japan",
+      title: "Student Visa",
       description: "We provide complete preparation for the specified skilled worker (ssw) visa, a japanese government-approved program that allows skilled nepali youth to work in 14 labor-scarce industries in japan.",
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop&crop=face",
       alt: "Students in classroom setting"

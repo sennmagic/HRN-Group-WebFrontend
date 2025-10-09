@@ -3,6 +3,7 @@ import React from 'react'
 import { FaFacebook, FaInstagram,  FaLinkedin, FaEnvelope, FaPhone,  FaLocationArrow } from 'react-icons/fa';
 import Breadcrumb from '@/components/atoms/breadcrumb';
 import ContactForm from '@/components/forms/contactform';
+import Header from '@/components/atoms/header';
 //changes
 
 const ContactPage = () => {
@@ -19,7 +20,7 @@ const ContactPage = () => {
           <div className="grid md:grid-cols-2 gap-12 mb-24">
             {/* Left Column - Contact Information */}
             <div className="space-y-8">
-    
+    <Header text="Contact Us" />
               
               <p className="text-stone-800 text-lg leading-relaxed">
                 Whether you’re looking to launch a new website, streamline your operations, or need guidance on your digital transformation journey — we’re here to help. Fill out the form, and one of our tech specialists will be in touch shortly.
@@ -36,7 +37,7 @@ const ContactPage = () => {
                       Instant Support & Project Queries
                     </div>
                     <div className="text-stone-800 text-sm font-semibold leading-tight">
-                      +977 9705051052
+                    014534455
                     </div>
                   </div>
                 </div>
@@ -51,7 +52,7 @@ const ContactPage = () => {
                       General Enquiries & Collaborations
                     </div>
                     <div className="text-stone-800 text-sm font-semibold leading-tight">
-                    info@lishnutech.com
+                    info@hrnnepal.com
                     </div>
                   </div>
                 </div>
@@ -66,10 +67,10 @@ const ContactPage = () => {
                     <div className="text-stone-800 text-sm font-semibold leading-tight">
                   
                       <div className="text-stone-800 text-xs font-normal leading-none tracking-tight">
-                        Development Center - Nepal
+                        Office Center - Nepal
                       </div>
                       
-                      Mid baneshwor, Kathmandu-10
+                      Hadigaun Marga, Kathmandu
                     </div>
                   </div>
                 </div>
@@ -83,9 +84,7 @@ const ContactPage = () => {
                 <a href="https://www.instagram.com/lishnutech/" target="_blank" rel="noopener noreferrer">
                   <FaInstagram className="text-2xl text-pink-500 hover:opacity-75 transition-opacity" />
                 </a>
-                <a href="https://www.linkedin.com/company/lishnu-tech/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
-                  <FaLinkedin className="text-2xl text-blue-800 hover:opacity-75 transition-opacity" />
-                </a>
+              
               </div>
             </div>
 

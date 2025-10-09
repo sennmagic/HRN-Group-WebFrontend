@@ -1,11 +1,27 @@
 "use client";
 
 import React, { useState } from 'react';
+import ReactCountryFlag from 'react-country-flag';
 import Link from 'next/link';
 import Logo from '../../atoms/logo';
-import { MapPin, Mail, Phone, Facebook, Twitter, Instagram, Linkedin, ChevronDown, Globe } from 'lucide-react';
+import { MapPin, Mail, Phone, Facebook, Twitter, Instagram, Linkedin, ChevronDown } from 'lucide-react';
+
+// Using react-country-flag for accurate flags
+const Flag = ({ countryCode }) => (
+  <ReactCountryFlag svg countryCode={countryCode} style={{ width: '20px', height: '20px' }} aria-label={countryCode} />
+);
 
 const Navbar = () => {
+  const [selectedLanguage, setSelectedLanguage] = useState('nepal');
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+
+  const languages = [
+    { code: 'nepal', name: 'Nepal', countryCode: 'NP' },
+    { code: 'japan', name: 'Japan', countryCode: 'JP' }
+  ];
+
+  const currentLanguage = languages.find(lang => lang.code === selectedLanguage) || languages[0];
+
   return (
     <header className="w-full">
       {/* Top Info Bar */}
@@ -33,13 +49,13 @@ const Navbar = () => {
                 <Facebook className="w-4 h-4" />
               </a>
               <a href="#" className="hover:text-primary transition-colors">
-                <Twitter className="w-4 h-4" />
+               
               </a>
               <a href="#" className="hover:text-primary transition-colors">
                 <Instagram className="w-4 h-4" />
               </a>
               <a href="#" className="hover:text-primary transition-colors">
-                <Linkedin className="w-4 h-4" />
+               
               </a>
             </div>
           </div>
@@ -78,22 +94,16 @@ const Navbar = () => {
                   <ChevronDown className="ml-1 w-4 h-4" />
                 </Link>
                 {/* Services Dropdown */}
-                <div className="absolute top-full left-0 mt-0 pt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] pointer-events-none group-hover:pointer-events-auto">
+                <div className="absolute top-full left-0 mt-0 pt-2 w-72 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] pointer-events-none group-hover:pointer-events-auto">
                   <div className="py-2">
-                    <Link href="/services" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors cursor-pointer">
-                      Interview Assistance
+                    <Link href="/services/1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors cursor-pointer">
+                      Specified Skilled Worker (SSW) - Part 1
                     </Link>
-                    <Link href="/services" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors cursor-pointer">
-                      Visa Guidance
+                    <Link href="/services/2" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors cursor-pointer">
+                      Technical Intern Training Program (TITP)
                     </Link>
-                    <Link href="/services" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors cursor-pointer">
-                      JPLT Training
-                    </Link>
-                    <Link href="/services" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors cursor-pointer">
-                      SSW Program
-                    </Link>
-                    <Link href="/services" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors cursor-pointer">
-                      Better Results
+                    <Link href="/services/3" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors cursor-pointer">
+                      Student Visa
                     </Link>
                   </div>
                 </div>
@@ -118,9 +128,40 @@ const Navbar = () => {
                 Login
               </Link>
               
-              <div className="flex items-center space-x-1 cursor-pointer text-primary transition-colors text-lg font-normal leading-[27px]">
-                <Globe className="w-4 h-4" />
-                <ChevronDown className="w-3 h-3" />
+              <div className="relative group">
+                <button 
+                  onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+                  className="flex items-center space-x-1 cursor-pointer text-primary transition-colors text-lg font-normal leading-[27px]"
+                >
+                  <span className="text-lg">
+                    <Flag countryCode={currentLanguage.countryCode} />
+                  </span>
+                  <ChevronDown className="w-3 h-3" />
+                </button>
+                
+                {/* Language Dropdown */}
+                {isLanguageOpen && (
+                  <div className="absolute top-full right-0 mt-2 w-32 bg-white rounded-md shadow-lg border border-gray-200 z-[9999]">
+                    <div className="py-2">
+                      {languages.map((language) => (
+                        <button
+                          key={language.code}
+                          onClick={() => {
+                            setSelectedLanguage(language.code);
+                            setIsLanguageOpen(false);
+                          }}
+                          className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-100 transition-colors flex items-center ${
+                            selectedLanguage === language.code ? 'bg-primary/10 text-primary' : 'text-gray-700'
+                          }`}
+                        >
+                          <span className="text-lg" aria-label={language.name}>
+                            <Flag countryCode={language.countryCode} />
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>

@@ -102,7 +102,7 @@ const ContactForm = ({
               Additional Necessity
             </label>
             <textarea
-              placeholder="e.g. We'd like to travel to three temples: Pashupatinath, Muktinath & Manakamana."
+              placeholder="e.g. We'd like to Contact for."
               value={formData.additionalInfo}
               onChange={(e) => handleChange("additionalInfo", e.target.value)}
               className="border border-blue-500 rounded-md px-4 py-2 h-28 resize-none focus:outline-none focus:ring-2 focus:ring-orange-400 placeholder:text-primary"

@@ -8,7 +8,7 @@ import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'luc
 const socialLinks = [
   { icon: Facebook, link: "https://www.facebook.com/profile.php?id=61558444111385" },
   { icon: Instagram, link: "https://www.instagram.com/lishnutech/" },
-  { icon: Linkedin, link: "https://www.linkedin.com/company/lishnu-tech/?viewAsMember=true" },
+
 ];
 
 const quickLinks = ["Services", "Process", "Portfolio", "Blogs"];
