@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const SERVICES = {
   1: {
-    title: 'Specified skilled worker (SSW) - Part 1',
+    title: 'Specified skilled worker (SSW)',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop&crop=center',
     description: 'We provide complete preparation for the SSW visa, a Japanese government-approved program that allows skilled Nepali youth to work in 14 labor-scarce industries in Japan.'
   },

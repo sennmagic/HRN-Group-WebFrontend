@@ -8,7 +8,7 @@ import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'luc
 const socialLinks = [
   { icon: Facebook, link: "https://www.facebook.com/profile.php?id=61558444111385" },
   { icon: Instagram, link: "https://www.instagram.com/lishnutech/" },
-
+  { icon: Linkedin, link: "https://www.linkedin.com/company/lishnu-tech/?viewAsMember=true" },
 ];
 
 const quickLinks = ["Services", "Process", "Portfolio", "Blogs"];
@@ -74,11 +74,10 @@ export default function Footer() {
               OUR SERVICES
             </h3>
             <ul className="space-y-3 sm:space-y-5 text-sm sm:text-base font-semibold">
-              <li><a href="#" className="hover:text-primary transition-colors text-gray-700">Interview assistance</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors text-gray-700">Specified skilled worker (SSW)</a></li>
               <li><a href="#" className="hover:text-primary transition-colors text-gray-700">Visa guidance</a></li>
               <li><a href="#" className="hover:text-primary transition-colors text-gray-700">JPLT</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors text-gray-700">SSW</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors text-gray-700">Better result</a></li>
+
             </ul>
           </div>
         </div>
