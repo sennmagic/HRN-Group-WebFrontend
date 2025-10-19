@@ -197,16 +197,15 @@ export default function Navbar() {
                         <Link
                           key={item.title}
                           href={`/services/${item.id}`}
-                          className="p-3 rounded-lg hover:bg-gray-50 transition-all"
+                          className="p-4 rounded-lg hover:bg-gray-50 transition-all group"
                         >
-                          <div className="flex items-start space-x-3">
-                            <item.icon className="w-5 h-5 text-primary mt-1" />
-                            <div>
-                              <h4 className="text-gray-800 font-medium">
-                                {item.title}
-                              </h4>
-                              <p className="text-sm text-gray-600">{item.desc}</p>
+                          <div className="flex items-center space-x-3">
+                            <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                              <item.icon className="w-5 h-5 text-primary" />
                             </div>
+                            <h4 className="text-gray-800 font-semibold group-hover:text-primary transition-colors">
+                              {item.title}
+                            </h4>
                           </div>
                         </Link>
                       ))}
