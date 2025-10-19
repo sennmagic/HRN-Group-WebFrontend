@@ -40,39 +40,22 @@ const TeamSection = () => {
     {
       name: "Prakash Acharya",
       position: "CEO",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=376&h=300&fit=crop&crop=face",
+      image: "./prakashacharya.jpg",
       description: "Leading the vision for HRN Group's success in Japan-Nepal workforce solutions."
     },
     {
-      name: "Sarah Johnson",
-      position: "Head of Operations",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=376&h=300&fit=crop&crop=face",
+      name: "Bishal Pokhrel",
+      position: "CEO",
+      image: "./bishal.jpg",
       description: "Overseeing daily operations and ensuring smooth workforce placement processes."
     },
     {
-      name: "Michael Chen",
+      name: "Santosh Neupane",
       position: "Language Training Director",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=376&h=300&fit=crop&crop=face",
+      image: "./santosh.jpg",
       description: "Expert in Japanese language education and JLPT preparation programs."
     },
-    {
-      name: "Emily Davis",
-      position: "HR Manager",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=376&h=300&fit=crop&crop=face",
-      description: "Managing human resources and ensuring quality worker selection processes."
-    },
-    {
-      name: "David Wilson",
-      position: "Japan Relations Manager",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=376&h=300&fit=crop&crop=face",
-      description: "Building and maintaining partnerships with Japanese companies and organizations."
-    },
-    {
-      name: "Lisa Anderson",
-      position: "Training Coordinator",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=376&h=300&fit=crop&crop=face",
-      description: "Coordinating training programs and ensuring successful skill development."
-    }
+
   ];
 
   return (

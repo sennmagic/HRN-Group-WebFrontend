@@ -75,47 +75,31 @@ const AboutSection = () => {
           }}>
             {/* Main Background Image - Scientific Presentation */}
             <img 
-              src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=616&h=638&fit=crop&crop=face"
+              src="./about-hrn.jpg"
               alt="Scientific presentation and training"
               className="absolute top-0 left-0 w-full h-full object-cover rounded-[17.91px]"
             />
             
             {/* Top-Right Image - Office/Reception Area */}
-            <div className={`absolute top-2 right-2 sm:top-4 sm:right-4 w-32 h-20 sm:w-48 sm:h-32 lg:w-56 lg:h-36 rounded-xl overflow-hidden shadow-lg ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            } transition-all duration-700 delay-200`}>
-              <img 
-                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=300&h=200&fit=crop"
-                alt="Professional office environment"
-                className="w-full h-full object-cover rounded-xl"
-              />
-            </div>
+        
 
             {/* Bottom-Right Image - Speaker/Presentation */}
-            <div className={`absolute bottom-2 right-2 sm:bottom-4 sm:right-4 w-32 h-20 sm:w-48 sm:h-32 lg:w-56 lg:h-36 rounded-xl overflow-hidden shadow-lg ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            } transition-all duration-700 delay-400`}>
-              <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop"
-                alt="Speaker presenting to audience"
-                className="w-full h-full object-cover rounded-xl"
-              />
-            </div>
+       
 
             {/* Blue Experience Box - Bottom left, overlapping main image */}
-            <div className={`absolute bottom-0 left-0 bg-blue-600 flex flex-col items-center justify-center shadow-lg ${
+            <div className={`absolute left-0 bg-blue-600 flex flex-col items-center justify-center shadow-lg ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             } transition-all duration-700 delay-600`}
             style={{
-              width: 'clamp(200px, 50%, 299.94px)',
-              height: 'clamp(120px, 30%, 196.98px)',
-              borderRadius: '17.91px'
+              width: 'clamp(150px, 35%, 220px)',
+              height: 'clamp(60px, 15%, 100px)',
+              borderTopRightRadius: '17.91px',
+              borderBottomRightRadius: '17.91px',
+              bottom: '30px'
             }}>
-              <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-bold mb-1 sm:mb-2">
-                {animatedValue}+
-              </div>
-              <div className="text-white text-xs sm:text-sm lg:text-lg font-medium text-center px-2 sm:px-4 leading-tight">
-                Years Of Experience
+              <div className="text-white text-center px-0.5 sm:px-1 leading-tight">
+                <div className="text-lg sm:text-xl lg:text-2xl font-medium">{animatedValue}+ Years of</div>
+                <div className="text-lg sm:text-xl lg:text-2xl font-medium">Experience</div>
               </div>
             </div>
           </div>
