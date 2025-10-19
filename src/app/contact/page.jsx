@@ -98,7 +98,7 @@ const ContactPage = () => {
           <div className="mb-24">
            
             <iframe
-             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d883.150557585195!2d85.33732169799029!3d27.698686339640496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1900656fc9b7%3A0x6fef2b58d1565a8a!2sLishnu%20Tech%20Pvt.%20Ltd.!5e0!3m2!1sen!2snp!4v1745285075803!5m2!1sen!2snp" 
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.7774599520108!2d85.33600477482943!3d27.721226424880378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xf225705275188d1%3A0x88f3f9cb223eefc4!2sHRN%20Group%20%26%20Management%20Company!5e1!3m2!1sen!2snp!4v1760893015417!5m2!1sen!2snp" 
              width="100%" height="450" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade"
               className="rounded-lg shadow-lg"
              ></iframe>
