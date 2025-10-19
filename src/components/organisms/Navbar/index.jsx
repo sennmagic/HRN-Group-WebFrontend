@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Logo from "../../atoms/logo";
 import { servicesData } from "../../../servicesData,";
+// import ReactCountryFlag from "react-country-flag";
 import {
   MapPin,
   Mail,
@@ -41,10 +42,26 @@ const mobileDropdownVariants = {
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [languageOpen, setLanguageOpen] = useState(false);
+  const languageRef = useRef(null);
 
   const toggleDropdown = (menu) => {
     setOpenDropdown(openDropdown === menu ? null : menu);
   };
+
+  // Close language dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (languageRef.current && !languageRef.current.contains(event.target)) {
+        setLanguageOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="w-full">
@@ -222,9 +239,76 @@ export default function Navbar() {
                 Login
               </Link>
 
-              <div className="hidden md:flex items-center space-x-1 text-primary cursor-pointer">
-                <Globe className="w-4 h-4" />
-                <ChevronDown className="w-3 h-3" />
+              <div className="hidden md:block relative" ref={languageRef}>
+                <div 
+                  className="flex items-center space-x-1 text-primary cursor-pointer hover:text-primary/80 transition-colors"
+                  onClick={() => setLanguageOpen(!languageOpen)}
+                >
+                  <Globe className="w-4 h-4" />
+                  <ChevronDown className={`w-3 h-3 transition-transform ${languageOpen ? 'rotate-180' : ''}`} />
+                </div>
+
+                {/* Language Dropdown */}
+                <AnimatePresence>
+                  {languageOpen && (
+                    <motion.div
+                      variants={megaVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      className="absolute top-full right-0 mt-3 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 z-50 overflow-hidden"
+                    >
+                      <div className="px-4 py-2 text-sm text-gray-600 font-medium border-b border-gray-100 bg-gray-50">
+                        Choose Language
+                      </div>
+                      <div className="py-2">
+                        <button
+                          className="w-full px-4 py-4 text-left hover:bg-red-50 flex items-center space-x-4 transition-all duration-200 group"
+                          onClick={() => {
+                            setLanguageOpen(false);
+                            // Handle language change
+                          }}
+                        >
+                          <div className="w-8 h-6 rounded-md overflow-hidden shadow-sm ring-1 ring-gray-200 bg-white flex items-center justify-center">
+                            <img 
+                              src="https://flagcdn.com/w40/jp.png"
+                              alt="Japan Flag"
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="flex-1">
+                            <div className="font-semibold text-gray-800 group-hover:text-red-600 transition-colors">日本語</div>
+                            <div className="text-sm text-gray-500">Japanese</div>
+                          </div>
+                          <div className="w-2 h-2 rounded-full bg-red-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </button>
+                        
+                        <div className="mx-4 my-2 border-t border-gray-100"></div>
+                        
+                        <button
+                          className="w-full px-4 py-4 text-left hover:bg-blue-50 flex items-center space-x-4 transition-all duration-200 group"
+                          onClick={() => {
+                            setLanguageOpen(false);
+                            // Handle language change
+                          }}
+                        >
+                          <div className="w-8 h-6 rounded-md overflow-hidden shadow-sm ring-1 ring-gray-200 bg-white flex items-center justify-center">
+                            <img 
+                              src="https://flagcdn.com/w40/us.png"
+                              alt="United States Flag"
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="flex-1">
+                            <div className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">English</div>
+                            <div className="text-sm text-gray-500">United States</div>
+                          </div>
+                          <div className="w-2 h-2 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               {/* Mobile Hamburger */}

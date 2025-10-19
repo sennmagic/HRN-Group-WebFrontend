@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Button from '../../atoms/buttons';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
@@ -42,9 +43,13 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+              <Link href="/contact">
+              
               <Button variant="primary" className="text-sm sm:text-base lg:text-lg bg-white hover:!bg-primary hover:!text-white w-full sm:w-auto px-6 py-3" textColor="#041926">
                 Book Appointment
               </Button>
+              </Link>
+          
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
               </div>

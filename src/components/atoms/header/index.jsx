@@ -134,7 +134,7 @@ const Header = ({
         {badge && (
           <div className={`mb-6 ${alignmentClass} ${badgeClass || ''}`}>
             <div 
-              className={`inline-block ${badgeClass ? `border ${badgeClass}` : ''}`}
+              className={`${align === 'center' ? 'mx-auto' : ''} ${badgeClass ? `border ${badgeClass}` : ''}`}
               style={{
                 width: '160px',
                 height: '42px',
