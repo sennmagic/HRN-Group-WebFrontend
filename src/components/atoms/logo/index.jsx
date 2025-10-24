@@ -20,7 +20,7 @@ const Logo = ({
     <Link href="/" className={`flex items-center ${className} cursor-pointer`}>
       <div className={`${currentSize.image} relative mr-3`}>
         <Image
-          src="/logo.gif"
+          src="/logo.png"
           alt="HRN Group Logo"
           fill
           className="object-contain"
