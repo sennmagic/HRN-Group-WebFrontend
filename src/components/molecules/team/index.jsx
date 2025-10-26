@@ -45,7 +45,7 @@ const TeamSection = () => {
     },
     {
       name: "Bishal Pokhrel",
-      position: "CEO",
+      position: "Managing Director",
       image: "./bishal.jpg",
       description: "Overseeing daily operations and ensuring smooth workforce placement processes."
     },

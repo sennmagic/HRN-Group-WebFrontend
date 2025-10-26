@@ -68,14 +68,15 @@ const HeroSection = () => {
 
           {/* Right Content - Hero Image */}
           <div className="relative flex justify-center lg:justify-end z-10">
-            <Image
-              src="/logo.gif" // ✅ Replace with your actual image path
-              alt="Hero Image"
-              width={900}
-              height={900}
-              className="rounded-full object-cover drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-              priority
-            />
+          <Image
+  src="/logo.gif"
+  alt="Hero Image"
+  width={900}
+  height={900}
+  className="rounded-full object-cover drop-shadow-2xl hover:scale-105 transition-transform duration-500 mix-blend-multiply"
+  priority
+/>
+
           </div>
         </div>
       </div>
