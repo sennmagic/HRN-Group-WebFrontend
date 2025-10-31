@@ -69,9 +69,9 @@ const HeroSection = () => {
           {/* Right Content - Hero Image */}
           <div className="relative flex justify-center lg:justify-end z-10">
           <Image
-  src="/logo.gif"
+  src="/HRN.gif"
   alt="Hero Image"
-  width={900}
+  width={1800}
   height={900}
   className="rounded-full object-cover drop-shadow-2xl hover:scale-105 transition-transform duration-500 mix-blend-multiply"
   priority
