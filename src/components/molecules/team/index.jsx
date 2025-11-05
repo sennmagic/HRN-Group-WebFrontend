@@ -11,6 +11,34 @@ const TeamSection = () => {
   const router = useRouter();
 
   useEffect(() => {
+    // Check if mobile or reduced motion preferred
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // If mobile or reduced motion, show immediately
+    if (isMobile || prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
+    // Check if element is already in viewport on mount
+    const checkInitialVisibility = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+        if (isInViewport) {
+          setIsVisible(true);
+          return true;
+        }
+      }
+      return false;
+    };
+
+    // If already visible, don't set up observer
+    if (checkInitialVisibility()) {
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -29,7 +57,18 @@ const TeamSection = () => {
       observer.observe(sectionRef.current);
     }
 
+    // Fallback: ensure visibility after a delay if observer doesn't fire
+    const fallbackTimeout = setTimeout(() => {
+      if (!isVisible && sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 2) {
+          setIsVisible(true);
+        }
+      }
+    }, 1000);
+
     return () => {
+      clearTimeout(fallbackTimeout);
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }

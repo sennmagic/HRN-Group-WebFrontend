@@ -17,6 +17,34 @@ const Header = ({
   const headerRef = useRef(null);
 
   useEffect(() => {
+    // Check if mobile or reduced motion preferred
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // If mobile or reduced motion, show immediately
+    if (isMobile || prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
+    // Check if element is already in viewport on mount
+    const checkInitialVisibility = () => {
+      if (headerRef.current) {
+        const rect = headerRef.current.getBoundingClientRect();
+        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+        if (isInViewport) {
+          setIsVisible(true);
+          return true;
+        }
+      }
+      return false;
+    };
+
+    // If already visible, don't set up observer
+    if (checkInitialVisibility()) {
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         // Enhanced animation with multiple states
@@ -44,7 +72,18 @@ const Header = ({
       observer.observe(headerRef.current);
     }
 
+    // Fallback: ensure visibility after a delay if observer doesn't fire
+    const fallbackTimeout = setTimeout(() => {
+      if (!isVisible && headerRef.current) {
+        const rect = headerRef.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 2) {
+          setIsVisible(true);
+        }
+      }
+    }, 1000);
+
     return () => {
+      clearTimeout(fallbackTimeout);
       if (headerRef.current) {
         observer.unobserve(headerRef.current);
       }
