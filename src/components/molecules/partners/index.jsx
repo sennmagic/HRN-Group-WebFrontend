@@ -11,7 +11,7 @@ const PartnerSection = ({ partnersdata = [] }) => {
     <div className="py-16 bg-white">
       {/* Header */}
       <Header 
-        text="Proudly Partnered With"
+        text="Our Group Companies"
         className="text-gray-800"
         align="center"
         size="small"

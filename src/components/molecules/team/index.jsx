@@ -78,19 +78,19 @@ const TeamSection = () => {
   const teamMembers = [
     {
       name: "Prakash Acharya",
-      position: "CEO",
+      position: "Chairman 会長",
       image: "./prakashacharya.jpg",
       description: "Leading the vision for HRN Group's success in Japan-Nepal workforce solutions."
     },
     {
       name: "Bishal Pokhrel",
-      position: "Managing Director",
+      position: "CEO 代表取締役",
       image: "./bishal.jpg",
       description: "Overseeing daily operations and ensuring smooth workforce placement processes."
     },
     {
       name: "Santosh Neupane",
-      position: "Language Training Director",
+      position: "Managing Director 取締役",
       image: "./santosh.jpg",
       description: "Expert in Japanese language education and JLPT preparation programs."
     },
