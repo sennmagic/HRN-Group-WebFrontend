@@ -1,46 +1,48 @@
 "use client";
 
-import React from 'react';
-import Breadcrumb from '@/components/atoms/breadcrumb';
-import { Wrench, CheckCircle, Globe2, BookOpen, GraduationCap } from 'lucide-react';
-import Link from 'next/link';
-import { servicesData } from '../../servicesData'; 
-import { useParams } from 'next/navigation';
+import React from "react";
+import Breadcrumb from "@/components/atoms/breadcrumb";
+import { Wrench, CheckCircle, Globe2, BookOpen, GraduationCap } from "lucide-react";
+import Link from "next/link";
+import { servicesData } from "../../../servicesData";
+import { useParams } from "next/navigation";
 
 const SERVICE_IMAGES = {
-  1: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=600&fit=crop&crop=center',
-  2: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop&crop=center',
-  3: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop&crop=center'
+  1: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=600&fit=crop&crop=center",
+  2: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop&crop=center",
+  3: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop&crop=center",
 };
 
 const SERVICE_ICONS = {
   1: GraduationCap,
   2: BookOpen,
-  3: Globe2
+  3: Globe2,
 };
 
 const ServiceSinglePage = () => {
   const params = useParams();
-  const slug = params.slug;            
+  const slug = params.slug;
   const service = servicesData.find((s) => s.id === parseInt(slug));
   const ServiceIcon = SERVICE_ICONS[slug];
 
   return (
     <>
       <Breadcrumb
-        items={[{ label: 'Services', href: '/services' }]}
+        items={[{ label: "Services", href: "/services" }]}
         withContainer
-        title={service ? service.title : 'Service'}
+        title={service ? service.title : "Service"}
       />
 
       <main className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8">
-            {/* LEFT / MAIN CONTENT */}
+
+            {/* LEFT CONTENT */}
             <div className="lg:col-span-8">
               {service ? (
                 <article>
-                  {/* Top image */}
+
+                  {/* Top Image */}
                   <div className="relative overflow-hidden rounded-2xl shadow-lg mb-8">
                     <img
                       src={SERVICE_IMAGES[slug]}
@@ -50,55 +52,67 @@ const ServiceSinglePage = () => {
                   </div>
 
                   <div className="space-y-8">
-                    {/* Title + icon */}
+
+                    {/* Title + Icon */}
                     <div className="flex items-center gap-3 mb-6">
                       <div className="p-3 bg-primary/10 rounded-lg">
-                        {ServiceIcon && (
-                          <ServiceIcon className="w-6 h-6 text-primary" />
-                        )}
+                        {ServiceIcon && <ServiceIcon className="w-6 h-6 text-primary" />}
                       </div>
-                      <h1 className="text-3xl font-bold text-gray-900">
-                        {service.title}
-                      </h1>
+                      <h1 className="text-3xl font-bold text-gray-900">{service.title}</h1>
                     </div>
 
-               
+                    {/* Overview */}
                     <p className="text-gray-700 text-lg leading-relaxed">
                       {service.details.overview}
                     </p>
 
+                    {/* Eligible Sectors */}
                     {service.details.eligibleSectors && (
                       <div className="space-y-4">
                         <h2 className="text-2xl font-semibold text-gray-900">
                           Eligible Sectors
                         </h2>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                          {service.details.eligibleSectors.map(
-                            (sector, index) => {
-                              const SectorIcon = sector.icon;
-                              return (
-                                <div
-                                  key={index}
-                                  className="bg-white rounded-2xl shadow-md border border-gray-200 p-8 min-h-[260px] flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all"
-                                >
-                                  <div>
-                                    <div className="flex items-center gap-3 mb-3">
-                                      {SectorIcon && (
-                                        <SectorIcon className="w-8 h-8 text-primary" />
-                                      )}
-                                      <h3 className="text-lg font-semibold text-gray-900">
-                                        {sector.name}
-                                      </h3>
-                                    </div>
-                                    <p className="text-sm text-gray-600">
-                                      {sector.japanese}
-                                    </p>
-                                  </div>
+
+                      
+                        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                          {service.details.eligibleSectors.map((sector, index) => (
+                            <div
+                              key={index}
+                              className="group bg-white rounded-3xl shadow-lg 
+                              hover:shadow-2xl hover:-translate-y-1 
+                              transition-all duration-300 flex flex-col overflow-hidden 
+                              w-full min-h-[350px]"
+                            >
+                       
+                              <div className="w-full h-56 bg-gray-100 overflow-hidden">
+                                <img
+                                  src={sector.image}
+                                  alt={sector.name}
+                                  className="w-full h-full object-cover 
+                                  transition-all duration-300 
+                                  group-hover:scale-105 
+                                  group-hover:rotate-[2deg]"
+                                />
+                              </div>
+
+                              {/* CONTENT */}
+                              <div className="flex flex-col justify-between p-6">
+                                <div>
+                                  <h3 className="text-xl font-semibold text-gray-900">
+                                    {sector.name}
+                                  </h3>
+
+                                  <p className="mt-2 text-sm text-gray-500">
+                                    {sector.subtitle || sector.japanese}
+                                  </p>
                                 </div>
-                              );
-                            }
-                          )}
+
+                            
+                              </div>
+                            </div>
+                          ))}
                         </div>
+
                       </div>
                     )}
 
@@ -111,19 +125,21 @@ const ServiceSinglePage = () => {
                         <h2 className="text-2xl font-semibold text-gray-900">
                           Eligibility Criteria
                         </h2>
+
                         <div className="grid gap-3">
                           {service.details.eligibility.map((item, index) => (
                             <div
                               key={index}
                               className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg"
                             >
-                              <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                              <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
                               <span className="text-gray-700">{item}</span>
                             </div>
                           ))}
                         </div>
                       </div>
                     )}
+
                   </div>
                 </article>
               ) : (
@@ -131,14 +147,13 @@ const ServiceSinglePage = () => {
               )}
             </div>
 
-            {/* RIGHT / SIDEBAR */}
+            {/* SIDEBAR */}
             <aside className="lg:col-span-4">
               <div className="sticky top-6">
+
                 <div className="flex items-center gap-2 mb-4">
                   <Wrench className="w-5 h-5 text-primary" />
-                  <h2 className="text-lg font-semibold text-gray-900">
-                    Other Services
-                  </h2>
+                  <h2 className="text-lg font-semibold text-gray-900">Other Services</h2>
                 </div>
 
                 <ul className="space-y-3">
@@ -147,13 +162,10 @@ const ServiceSinglePage = () => {
                     .map((item) => {
                       const ItemIcon = SERVICE_ICONS[item.id];
                       return (
-                        <li
-                          key={item.id}
-                          className="border-b border-gray-200 last:border-b-0 pb-3"
-                        >
+                        <li key={item.id} className="border-b border-gray-200 pb-3 last:border-none">
                           <Link
                             href={`/services/${item.id}`}
-                            className="flex items-center gap-3 text-sm text-gray-800 hover:text-primary transition-colors cursor-pointer group"
+                            className="flex items-center gap-3 text-sm text-gray-800 hover:text-primary transition-colors group"
                           >
                             {ItemIcon && (
                               <ItemIcon className="w-4 h-4 group-hover:text-primary" />
@@ -166,15 +178,14 @@ const ServiceSinglePage = () => {
                 </ul>
 
                 <div className="mt-4">
-                  <Link
-                    href="/services"
-                    className="text-sm font-medium text-primary hover:underline"
-                  >
+                  <Link href="/services" className="text-sm font-medium text-primary hover:underline">
                     View all services
                   </Link>
                 </div>
+
               </div>
             </aside>
+
           </div>
         </div>
       </main>

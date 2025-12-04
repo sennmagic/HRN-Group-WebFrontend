@@ -17,9 +17,19 @@ export const servicesData = [
 
       
       eligibleSectors: [
-        { name: "Nursing Care Giver" },
-        { name: "Food service industry"},
-        { name: "Agriculture" }
+        {
+           name: "Nursing Care Giver" ,
+           image:"/about-hrn.jpg"
+        
+        },
+        { 
+          name: "Food service industry",
+          image:"/about-hrn.jpg"
+        },
+        { 
+          name: "Agriculture" ,
+          image: "/about-hrn.jpg"
+        }
       ]
     }
   },
