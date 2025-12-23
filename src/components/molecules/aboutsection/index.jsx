@@ -117,7 +117,7 @@ const AboutSection = () => {
           }}>
             {/* Main Background Image - Scientific Presentation */}
             <img 
-              src="./about-hrn.jpg"
+              src="/about-hrn.jpg"
               alt="Scientific presentation and training"
               className="absolute top-0 left-0 w-full h-full object-cover rounded-[17.91px]"
             />

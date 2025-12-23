@@ -3,19 +3,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Logo from "../../atoms/logo";
-import { servicesData } from "../../../servicesData";
-// import ReactCountryFlag from "react-country-flag";
+import { servicesData } from "../../../servicesData"; 
 import {
   MapPin,
   Mail,
   Phone,
   Facebook,
-  Twitter,
   Instagram,
   Linkedin,
   ChevronDown,
   Globe,
-  Briefcase,
   Globe2,
   Users,
   Menu,
@@ -49,6 +46,14 @@ export default function Navbar() {
     setOpenDropdown(openDropdown === menu ? null : menu);
   };
 
+  const filteredServices = servicesData
+    .filter((item) => item.id === 3 || item.id === 2)
+    .sort((a, b) => {
+      if (a.id === 3) return -1;
+      if (b.id === 3) return 1;
+      return 0;
+    });
+
   // Close language dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -57,9 +62,9 @@ export default function Navbar() {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -83,11 +88,34 @@ export default function Navbar() {
             </div>
           </div>
 
+          {/* Clickable Social Links */}
           <div className="flex items-center space-x-3">
-            <Facebook className="w-4 h-4 hover:text-primary cursor-pointer" />
-            <Twitter className="w-4 h-4 hover:text-primary cursor-pointer" />
-            <Instagram className="w-4 h-4 hover:text-primary cursor-pointer" />
-            <Linkedin className="w-4 h-4 hover:text-primary cursor-pointer" />
+            <a
+              href="https://www.facebook.com/yourpage"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-4 h-4 hover:text-primary cursor-pointer transition-transform hover:scale-110" />
+            </a>
+
+            <a
+              href="https://www.instagram.com/yourpage"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-4 h-4 hover:text-primary cursor-pointer transition-transform hover:scale-110" />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/company/yourcompany"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4 hover:text-primary cursor-pointer transition-transform hover:scale-110" />
+            </a>
           </div>
         </div>
       </div>
@@ -124,8 +152,8 @@ export default function Navbar() {
                           Who We Are
                         </h3>
                         <p className="text-sm text-gray-600 mb-3">
-                          Learn more about our journey, values, and the passionate
-                          team that powers HRN Nepal.
+                          Learn more about our journey, values, and the
+                          passionate team that powers HRN Nepal.
                         </p>
                         <Link
                           href="/about/about-hrn"
@@ -158,15 +186,8 @@ export default function Navbar() {
                               <span>Mission & Vision</span>
                             </Link>
                           </li>
-                          <li>
-                            <Link
-                              href="/about/careers"
-                              className="flex items-center space-x-2 text-gray-700 hover:text-primary"
-                            >
-                              <Briefcase className="w-4 h-4" />
-                              <span>Careers</span>
-                            </Link>
-                          </li>
+
+                          {/* ✅ Careers removed */}
                         </ul>
                       </div>
                     </motion.div>
@@ -193,7 +214,7 @@ export default function Navbar() {
                       exit="exit"
                       className="absolute top-full left-0 w-[700px] bg-white rounded-2xl shadow-2xl border border-gray-200 mt-4 p-6 grid grid-cols-3 gap-6 z-50"
                     >
-                      {servicesData.map((item) => (
+                      {filteredServices.map((item) => (
                         <Link
                           key={item.title}
                           href={`/services/${item.id}`}
@@ -239,12 +260,16 @@ export default function Navbar() {
               </Link>
 
               <div className="hidden md:block relative" ref={languageRef}>
-                <div 
+                <div
                   className="flex items-center space-x-1 text-primary cursor-pointer hover:text-primary/80 transition-colors"
                   onClick={() => setLanguageOpen(!languageOpen)}
                 >
                   <Globe className="w-4 h-4" />
-                  <ChevronDown className={`w-3 h-3 transition-transform ${languageOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`w-3 h-3 transition-transform ${
+                      languageOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </div>
 
                 {/* Language Dropdown */}
@@ -263,44 +288,44 @@ export default function Navbar() {
                       <div className="py-2">
                         <button
                           className="w-full px-4 py-4 text-left hover:bg-red-50 flex items-center space-x-4 transition-all duration-200 group"
-                          onClick={() => {
-                            setLanguageOpen(false);
-                            // Handle language change
-                          }}
+                          onClick={() => setLanguageOpen(false)}
                         >
                           <div className="w-8 h-6 rounded-md overflow-hidden shadow-sm ring-1 ring-gray-200 bg-white flex items-center justify-center">
-                            <img 
+                            <img
                               src="https://flagcdn.com/w40/jp.png"
                               alt="Japan Flag"
                               className="w-full h-full object-cover"
                             />
                           </div>
                           <div className="flex-1">
-                            <div className="font-semibold text-gray-800 group-hover:text-red-600 transition-colors">日本語</div>
+                            <div className="font-semibold text-gray-800 group-hover:text-red-600 transition-colors">
+                              日本語
+                            </div>
                             <div className="text-sm text-gray-500">Japanese</div>
                           </div>
                           <div className="w-2 h-2 rounded-full bg-red-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </button>
-                        
+
                         <div className="mx-4 my-2 border-t border-gray-100"></div>
-                        
+
                         <button
                           className="w-full px-4 py-4 text-left hover:bg-blue-50 flex items-center space-x-4 transition-all duration-200 group"
-                          onClick={() => {
-                            setLanguageOpen(false);
-                            // Handle language change
-                          }}
+                          onClick={() => setLanguageOpen(false)}
                         >
                           <div className="w-8 h-6 rounded-md overflow-hidden shadow-sm ring-1 ring-gray-200 bg-white flex items-center justify-center">
-                            <img 
+                            <img
                               src="https://flagcdn.com/w40/us.png"
                               alt="United States Flag"
                               className="w-full h-full object-cover"
                             />
                           </div>
                           <div className="flex-1">
-                            <div className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">English</div>
-                            <div className="text-sm text-gray-500">United States</div>
+                            <div className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
+                              English
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              United States
+                            </div>
                           </div>
                           <div className="w-2 h-2 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </button>
@@ -343,7 +368,8 @@ export default function Navbar() {
                     }
                     className="flex justify-between items-center w-full text-gray-700 font-medium py-2"
                   >
-                    About <ChevronDown
+                    About
+                    <ChevronDown
                       className={`w-4 h-4 transition-transform ${
                         openDropdown === "about" ? "rotate-180" : ""
                       }`}
@@ -362,7 +388,8 @@ export default function Navbar() {
                         <Link href="/about/about-hrn">About HRN</Link>
                         <Link href="/about/our-team">Our Team</Link>
                         <Link href="/about/mission">Mission & Vision</Link>
-                        <Link href="/about/careers">Careers</Link>
+
+                        {/* ✅ Careers removed */}
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -372,11 +399,14 @@ export default function Navbar() {
                 <div>
                   <button
                     onClick={() =>
-                      toggleDropdown(openDropdown === "services" ? null : "services")
+                      toggleDropdown(
+                        openDropdown === "services" ? null : "services"
+                      )
                     }
                     className="flex justify-between items-center w-full text-gray-700 font-medium py-2"
                   >
-                    Services <ChevronDown
+                    Services
+                    <ChevronDown
                       className={`w-4 h-4 transition-transform ${
                         openDropdown === "services" ? "rotate-180" : ""
                       }`}
@@ -392,7 +422,7 @@ export default function Navbar() {
                         exit="exit"
                         className="pl-4 pt-2 space-y-2 text-gray-600"
                       >
-                        {servicesData.map((item) => (
+                        {filteredServices.map((item) => (
                           <Link key={item.title} href={`/services/${item.id}`}>
                             {item.title}
                           </Link>
