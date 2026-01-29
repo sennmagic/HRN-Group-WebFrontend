@@ -232,7 +232,7 @@ export default function Navbar() {
             {/* Right Side */}
             <div className="flex items-center space-x-4">
               <Link
-                href="/login"
+                href="https://system.hrnnepal.com"
                 className="hidden md:block px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition"
               >
                 Login
