@@ -4,14 +4,15 @@ import Navbar from "../components/organisms/Navbar";
 import HeroSection from "@/components/organisms/herosection";
 import { Import } from "lucide-react";
 import PartnerSection from "@/components/molecules/partners";
-import AboutSection from "@/components/molecules/aboutsection";
+
+
 import ServicesSection from "@/components/molecules/services";
 import WhyChooseSection from "@/components/molecules/whychoose";
 import TeamSection from "@/components/molecules/team";
 import TestimonialsSection from "@/components/molecules/testimonials";
 import FAQSection from "@/components/molecules/faq";
 import BlogSection from "@/components/molecules/blog";
-import Footer from "@/components/organisms/footer";
+
 
 export default function Home() {
   const handleButtonClick = (message) => {
@@ -56,7 +57,7 @@ export default function Home() {
     <>
       <HeroSection />
       <PartnerSection partnersdata={partnersData} />
-      <AboutSection />
+     
       <ServicesSection />
       <WhyChooseSection />
       <TeamSection />

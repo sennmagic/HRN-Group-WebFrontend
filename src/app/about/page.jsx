@@ -18,7 +18,11 @@ const AboutHrnPage = () => {
         title="Empowering nepali youth for global opportunities"
        
       />
+
+
+      
             <AboutSection />
+            
       <OurMissionVision />
       <WhyChooseSection />
 

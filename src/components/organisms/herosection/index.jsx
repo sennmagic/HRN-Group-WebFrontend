@@ -8,46 +8,64 @@ import Image from 'next/image'; // ✅ Import Next.js Image component
 
 const HeroSection = () => {
   return (
-    <section
-      className="relative min-h-screen overflow-hidden"
-      style={{
-        background: 'linear-gradient(103.03deg, #79D2FF 2.47%, #EFF9FF 99.65%)'
-      }}
-    >
-      {/* Abstract Background Shapes */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl transform translate-x-32 -translate-y-16 z-0"></div>
-      <div className="absolute top-20 right-40 w-80 h-80 bg-blue-100/40 rounded-full blur-2xl transform translate-x-20 translate-y-10 z-0"></div>
-      <div className="absolute bottom-20 right-20 w-60 h-60 bg-pink-200/30 rounded-full blur-2xl z-0"></div>
+   <section
+  className="relative min-h-screen overflow-hidden bg-primary"
 
+>
+      {/* Abstract Background Shapes */}
+<div className="absolute inset-0 z-0">
+  <Image
+    src="/buildinghrn.png"
+    alt="Background"
+    width={2020}
+    height={1080}
+    className="w-full h-auto opacity-10"
+    priority
+  />
+</div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-24 items-center min-h-[60vh] lg:min-h-[80vh]">
           {/* Left Content */}
           <div className="space-y-6 sm:space-y-8 z-10">
-            <h2
-              className="text-[#041926] w-full max-w-full lg:w-[760px]"
-              style={{
-                fontFamily: 'Plus Jakarta Sans',
-                fontWeight: 700,
-                fontStyle: 'Bold',
-                fontSize: 'clamp(32px, 5vw, 58px)',
-                lineHeight: '100%',
-                letterSpacing: '-1%',
-                opacity: 0.9
-              }}
-            >
-              <span className="block sm:whitespace-nowrap">
-                Pioneering Nepal–Japan
-              </span>
-              <span className="block">skilled workforce solutions</span>
-            </h2>
+          <h2
+  className="text-white w-full max-w-full lg:w-[760px]"
+  style={{
+    fontFamily: 'Plus Jakarta Sans',
+    fontWeight: 600,
+    fontSize: 'clamp(28px, 4vw, 40px)',
+    lineHeight: '110%',
+    letterSpacing: '-0.5px',
+    opacity: 0.9
+  }}
+>
+  <span className="block text-white mb-2" style={{ fontSize: 'clamp(28px, 2vw, 60px)' }}>
+    ようこそ
+  </span>
+ <span className="block" style={{ color: '#FFFAF2' }}>
+  Welcome to HRN Group <br/> <span className="block text-white" style={{ fontSize: 'clamp(14px, 2vw, 18px)' }}>
 
-            <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed font-normal max-w-full lg:max-w-[760px]">
-              Empowering Nepali youth to build a successful future in Japan by
-              providing world-class vocational training, intensive Japanese
-              language education, and a reliable placement system that ensures
-              smooth integration into Japan's skilled workforce across various
-              industries.
-            </p>
+
+<span className=' p-1 text-right '>
+  機会に満ちた世界
+</span>
+  </span>  
+</span>
+</h2>
+
+
+
+<div className="flex gap-2">
+  <div className="">
+    <h3 className='font-bold text-[#FFFAF2] text-lg'>企業理念</h3>
+    <p>人を育み、力を活かし、価値を創造する。</p>
+
+    <h3 className='font-bold text-[#FFFAF2] mt-4 text-lg'>Mission（ミッション）</h3>
+    <p>質の高い人材を育成し、日本企業へ円滑かつ責任ある送り出しを実現すること</p>
+
+    <h3 className='font-bold text-[#FFFAF2] mt-4 text-lg'>Vision（ビジョン）</h3>
+    <p>信頼と実績を礎に、日本とネパールを結ぶ架け橋として、持続的な価値を創造する存在へ</p>
+  </div>
+</div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
               <Link href="/contact">
@@ -67,17 +85,16 @@ const HeroSection = () => {
           </div>
 
           {/* Right Content - Hero Image */}
-          <div className="relative flex justify-center lg:justify-end z-10">
-          <Image
-  src="/HRN.gif"
-  alt="Hero Image"
-  width={1800}
-  height={900}
-  className="rounded-full object-cover drop-shadow-2xl hover:scale-105 transition-transform duration-500 mix-blend-multiply"
-  priority
-/>
-
-          </div>
+      <div className="relative flex justify-center lg:justify-end z-10 lg:-mr-24 xl:-mr-32">
+  <Image
+    src="/HRN.gif"
+    alt="Hero Image"
+    width={2200}
+    height={1200}
+    className="rounded-full object-cover drop-shadow-2xl hover:scale-105 transition-transform duration-500 mix-blend-multiply w-[600px] lg:w-[800px] xl:w-[1000px]"
+    priority
+  />
+</div>
         </div>
       </div>
     </section>

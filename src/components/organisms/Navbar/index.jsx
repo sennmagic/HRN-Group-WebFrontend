@@ -64,9 +64,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="w-full">
+    <header className="w-full ">
       {/* Top Info Bar */}
-      <div className="bg-primary-light text-gray-700 py-2 px-4 hidden sm:block">
+      <div className="bg-white text-black font-bold py-2 px-4 hidden sm:block">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm font-normal">
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
@@ -84,94 +84,53 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center space-x-3">
-            <Facebook className="w-4 h-4 hover:text-primary cursor-pointer" />
-            <Twitter className="w-4 h-4 hover:text-primary cursor-pointer" />
-            <Instagram className="w-4 h-4 hover:text-primary cursor-pointer" />
-            <Linkedin className="w-4 h-4 hover:text-primary cursor-pointer" />
+            <Facebook className="w-4 h-4  hover:text-white cursor-pointer" />
+            <Twitter className="w-4 h-4  hover:text-white cursor-pointer" />
+            <Instagram className="w-4 h-4  hover:text-white cursor-pointer" />
+            <Linkedin className="w-4 h-4  hover:text-white cursor-pointer" />
           </div>
         </div>
       </div>
 
       {/* Main Navigation */}
-      <nav className="bg-white shadow-sm border-t-4 border-primary relative z-50">
+      <nav className="bg-[#0D1B2E] sticky top-0 z-10 !text-[#0D1B2E] shadow-sm border-t-4 border-primary relative z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-20">
             <Logo size="md" showText={false} />
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8 relative">
+            <div className="hidden md:flex items-center space-x-8 relative text-white">
               {/* About */}
               <div
                 className="relative"
                 onMouseEnter={() => setOpenDropdown("about")}
                 onMouseLeave={() => setOpenDropdown("")}
               >
-                <button className="flex items-center text-lg font-normal text-gray-700 hover:text-primary">
+                <button className="flex items-center text-lg font-normal hover:text-white cursor-pointer">
                   About <ChevronDown className="ml-1 w-4 h-4" />
                 </button>
 
-                <AnimatePresence>
-                  {openDropdown === "about" && (
-                    <motion.div
-                      variants={megaVariants}
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      className="absolute top-full left-0 w-[600px] bg-white rounded-2xl shadow-2xl border border-gray-200 mt-4 p-6 grid grid-cols-2 gap-6 z-50"
-                    >
-                      <div>
-                        <h3 className="text-primary font-semibold mb-2">
-                          Who We Are
-                        </h3>
-                        <p className="text-sm text-gray-600 mb-3">
-                          Learn more about our journey, values, and the passionate
-                          team that powers HRN Nepal.
-                        </p>
-                        <Link
-                          href="/about/about-hrn"
-                          className="text-primary font-medium hover:underline"
-                        >
-                          About HRN →
-                        </Link>
-                      </div>
-
-                      <div>
-                        <h3 className="text-primary font-semibold mb-2">
-                          Our People
-                        </h3>
-                        <ul className="space-y-2">
-                          <li>
-                            <Link
-                              href="/about/our-team"
-                              className="flex items-center space-x-2 text-gray-700 hover:text-primary"
-                            >
-                              <Users className="w-4 h-4" />
-                              <span>Our Team</span>
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/about/mission"
-                              className="flex items-center space-x-2 text-gray-700 hover:text-primary"
-                            >
-                              <Globe2 className="w-4 h-4" />
-                              <span>Mission & Vision</span>
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="/about/careers"
-                              className="flex items-center space-x-2 text-gray-700 hover:text-primary"
-                            >
-                              <Briefcase className="w-4 h-4" />
-                              <span>Careers</span>
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+        <AnimatePresence>
+  {openDropdown === "about" && (
+    <motion.div
+      variants={megaVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="absolute top-full left-0 w-60 mt-2 z-50 flex flex-col gap-2"
+    >
+      <Link href="/about/company" className="block font-semibold px-4 py-2 text-sm text-gray-800 bg-white rounded-xl shadow-lg border border-gray-100 hover:bg-gray-50">
+        会社概要
+      </Link>
+      <Link href="/about/our-team" className="block font-semibold px-4 py-2 text-sm text-gray-800 bg-white rounded-xl shadow-lg border border-gray-100 hover:bg-gray-50">
+        役員紹介
+      </Link>
+      <Link href="/about/why-hrn" className="block font-semibold px-4 py-2 text-sm text-gray-800 bg-white rounded-xl shadow-lg border border-gray-100 hover:bg-gray-50">
+        なぜHRNグループ
+      </Link>
+    </motion.div>
+  )}
+</AnimatePresence>
               </div>
 
               {/* Services */}
@@ -180,7 +139,7 @@ export default function Navbar() {
                 onMouseEnter={() => setOpenDropdown("services")}
                 onMouseLeave={() => setOpenDropdown("")}
               >
-                <button className="flex items-center text-lg font-normal text-gray-700 hover:text-primary">
+                <button className="flex items-center text-lg font-normal text-  hover:text-white">
                   Services <ChevronDown className="ml-1 w-4 h-4" />
                 </button>
 
@@ -203,7 +162,7 @@ export default function Navbar() {
                             <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                               <item.icon className="w-5 h-5 text-primary" />
                             </div>
-                            <h4 className="text-gray-800 font-semibold group-hover:text-primary transition-colors">
+                            <h4 className="text-gray-800 font-semibold group- hover:text-white transition-colors">
                               {item.title}
                             </h4>
                           </div>
@@ -216,14 +175,14 @@ export default function Navbar() {
 
               <Link
                 href="/blog"
-                className="text-gray-700 hover:text-primary text-lg font-normal"
+                className="text-  hover:text-white text-lg font-normal"
               >
                 Blogs
               </Link>
 
               <Link
                 href="/contact"
-                className="text-gray-700 hover:text-primary text-lg font-normal"
+                className="text-  hover:text-white text-lg font-normal"
               >
                 Contact
               </Link>
@@ -233,14 +192,14 @@ export default function Navbar() {
             <div className="flex items-center space-x-4">
               <Link
                 href="https://system.hrnnepal.com"
-                className="hidden md:block px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition"
+                className="hidden md:block px-4 py-2 underline text-white rounded-md hover:bg-primary/90 transition"
               >
                 Login
               </Link>
 
               <div className="hidden md:block relative" ref={languageRef}>
                 <div 
-                  className="flex items-center space-x-1 text-primary cursor-pointer hover:text-primary/80 transition-colors"
+                  className="flex items-center space-x-1 text-primary cursor-pointer  hover:text-white/80 transition-colors"
                   onClick={() => setLanguageOpen(!languageOpen)}
                 >
                   <Globe className="w-4 h-4" />
@@ -341,7 +300,7 @@ export default function Navbar() {
                     onClick={() =>
                       toggleDropdown(openDropdown === "about" ? null : "about")
                     }
-                    className="flex justify-between items-center w-full text-gray-700 font-medium py-2"
+                    className="flex justify-between items-center w-full text- font-medium py-2"
                   >
                     About <ChevronDown
                       className={`w-4 h-4 transition-transform ${
@@ -374,7 +333,7 @@ export default function Navbar() {
                     onClick={() =>
                       toggleDropdown(openDropdown === "services" ? null : "services")
                     }
-                    className="flex justify-between items-center w-full text-gray-700 font-medium py-2"
+                    className="flex justify-between items-center w-full text- font-medium py-2"
                   >
                     Services <ChevronDown
                       className={`w-4 h-4 transition-transform ${
@@ -403,10 +362,10 @@ export default function Navbar() {
                 </div>
 
                 {/* Static Links */}
-                <Link href="/blog" className="text-gray-700 font-medium py-2">
+                <Link href="/blog" className="text- font-medium py-2">
                   Blogs
                 </Link>
-                <Link href="/contact" className="text-gray-700 font-medium py-2">
+                <Link href="/contact" className="text- font-medium py-2">
                   Contact
                 </Link>
 

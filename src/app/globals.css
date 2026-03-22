@@ -2,34 +2,35 @@
 
 :root {
   --background: #ffffff;
- 
+
   /* Primary and Secondary Colors */
-  --primary: #0D92F4;
+  --primary: #0D1B2E;
   --primary-light: #77CDFF;
   --secondary: #F95454;
   --secondary-dark: #C62E2E;
-  
+  --golden: #c9a84c;
+
   /* Consistent Spacing System */
-  --section-padding: 4rem; /* 64px - py-16 */
-  --header-margin-bottom: 2rem; /* 32px - mb-8 */
-  --content-gap: 1.5rem; /* 24px - gap-6 */
+  --section-padding: 4rem;
+  --header-margin-bottom: 2rem;
+  --content-gap: 1.5rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-plus-jakarta-sans);
-  
+
   /* Custom Colors */
   --color-primary: var(--primary);
   --color-primary-light: var(--primary-light);
   --color-secondary: var(--secondary);
+  --color-golden: var(--golden);
   --color-secondary-dark: var(--secondary-dark);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-  
     --foreground: #ededed;
   }
 }
@@ -40,7 +41,34 @@ body {
   font-family: var(--font-plus-jakarta-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Line clamp utilities for text truncation */
+/* ─── Typography ─────────────────────────────────────────── */
+@layer base {
+  h1 {
+    @apply text-5xl font-bold leading-tight tracking-tight text-primary;
+  }
+
+  h2 {
+    @apply text-4xl font-bold leading-snug tracking-tight text-primary;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold leading-snug text-primary;
+  }
+
+  h4 {
+    @apply text-xl font-semibold leading-normal text-primary;
+  }
+
+  h5 {
+    @apply text-base font-semibold leading-normal text-primary;
+  }
+
+  h6 {
+    @apply text-sm font-semibold leading-normal text-primary;
+  }
+}
+
+/* ─── Line Clamp ─────────────────────────────────────────── */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -55,7 +83,7 @@ body {
   overflow: hidden;
 }
 
-/* Navbar dropdown fixes */
+/* ─── Navbar Dropdown ────────────────────────────────────── */
 .group:hover .group-hover\:opacity-100 {
   opacity: 1 !important;
 }
