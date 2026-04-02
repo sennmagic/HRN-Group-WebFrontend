@@ -4,7 +4,9 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Logo from "../../atoms/logo";
 import { servicesData } from "../../../servicesData,";
-// import ReactCountryFlag from "react-country-flag";
+
+
+
 import {
   MapPin,
   Mail,
@@ -15,22 +17,26 @@ import {
   Linkedin,
   ChevronDown,
   Globe,
-  Briefcase,
-  Globe2,
-  Users,
+
   Menu,
   X,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const megaVariants = {
-  hidden: { opacity: 0, y: -15 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.3, ease: "easeOut" },
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.05,
+    },
   },
-  exit: { opacity: 0, y: -15, transition: { duration: 0.2 } },
+  exit: { opacity: 0 },
+};
+const itemVariants = {
+  hidden: { opacity: 0, x: -16, y: 4 },
+  visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.25, ease: "easeOut" } },
 };
 
 const mobileDropdownVariants = {
@@ -93,7 +99,7 @@ export default function Navbar() {
       </div>
 
       {/* Main Navigation */}
-      <nav className="bg-[#0D1B2E] sticky top-0 z-10 !text-[#0D1B2E] shadow-sm border-t-4 border-primary relative z-50">
+  <nav className="bg-primary sticky top-0 z-50 !text-[#0D1B2E] shadow-sm border-t-4 border-primary">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-20">
             <Logo size="md" showText={false} />
@@ -101,37 +107,51 @@ export default function Navbar() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8 relative text-white">
               {/* About */}
-              <div
-                className="relative"
-                onMouseEnter={() => setOpenDropdown("about")}
-                onMouseLeave={() => setOpenDropdown("")}
-              >
+             <div
+  className="relative"
+  onMouseEnter={() => setOpenDropdown("about")}
+  onMouseLeave={() => setOpenDropdown(null)}  // null instead of ""
+>
                 <button className="flex items-center text-lg font-normal hover:text-white cursor-pointer">
                   About <ChevronDown className="ml-1 w-4 h-4" />
                 </button>
-
-        <AnimatePresence>
+<AnimatePresence>
   {openDropdown === "about" && (
     <motion.div
       variants={megaVariants}
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="absolute top-full left-0 w-60 mt-2 z-50 flex flex-col gap-2"
+      style={{ position: "absolute", top: "100%", left: 0, marginTop: "8px", zIndex: 50, display: "flex", flexDirection: "column", gap: "8px" }}
     >
-      <Link href="/about/company" className="block font-semibold px-4 py-2 text-sm text-gray-800 bg-white rounded-xl shadow-lg border border-gray-100 hover:bg-gray-50">
-        会社概要
-      </Link>
-      <Link href="/about/our-team" className="block font-semibold px-4 py-2 text-sm text-gray-800 bg-white rounded-xl shadow-lg border border-gray-100 hover:bg-gray-50">
-        役員紹介
-      </Link>
-      <Link href="/about/why-hrn" className="block font-semibold px-4 py-2 text-sm text-gray-800 bg-white rounded-xl shadow-lg border border-gray-100 hover:bg-gray-50">
-        なぜHRNグループ
-      </Link>
+      <motion.div variants={itemVariants}>
+        <Link href="/about/company" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text-white bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
+          会社概要
+        </Link>
+      </motion.div>
+      <motion.div variants={itemVariants}>
+        <Link href="/about/our-team" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text-white bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
+          役員紹介
+        </Link>
+      </motion.div>
+      <motion.div variants={itemVariants}>
+        <Link href="/" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text-white bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
+          日本語学校紹介
+        </Link>
+      </motion.div>
+      <motion.div variants={itemVariants}>
+        <Link href="/about/why-hrn" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text-white bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
+          なぜHRNグループ
+        </Link>
+      </motion.div>
     </motion.div>
   )}
 </AnimatePresence>
               </div>
+
+              <Link href="/about/our-team" className="flex items-center text-lg font-normal text-  hover:text-white">
+                  Team 
+                </Link > 
 
               {/* Services */}
               <div
@@ -142,6 +162,7 @@ export default function Navbar() {
                 <button className="flex items-center text-lg font-normal text-  hover:text-white">
                   Services <ChevronDown className="ml-1 w-4 h-4" />
                 </button>
+                
 
                 <AnimatePresence>
                   {openDropdown === "services" && (
@@ -192,7 +213,7 @@ export default function Navbar() {
             <div className="flex items-center space-x-4">
               <Link
                 href="https://system.hrnnepal.com"
-                className="hidden md:block px-4 py-2 underline text-white rounded-md hover:bg-primary/90 transition"
+                className="hidden md:block px-4 py-2 font-normal  text-white rounded-md hover:bg-primary/90 transition"
               >
                 Login
               </Link>

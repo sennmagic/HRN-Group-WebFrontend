@@ -48,8 +48,8 @@ export default function WhyHRN() {
   ];
 
   return (
-    <div className="px-10 py-12 bg-primary">
-      {/* Page Title */}
+   <div className="w-full px-6 py-12 bg-primary">   {/* outer */}
+  <div className="max-w-7xl mx-auto">    
       <h2 className="font-bold mb-10 text-2xl bg-gradient-to-b from-[#e8c97a] to-[#b8922a] bg-clip-text text-transparent">
         なぜHRN GROUP？
       </h2>
@@ -85,8 +85,10 @@ export default function WhyHRN() {
                 {item.desc}
               </p>
             </div>
+            
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

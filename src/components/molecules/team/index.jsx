@@ -85,16 +85,10 @@ const TeamSection = () => {
     {
       name: "Bishal Pokhrel",
       position: "CEO 代表取締役",
-      image: "./bishal.jpg",
+      image: "./bishal.png",
       description: "Overseeing daily operations and ensuring smooth workforce placement processes."
     },
-    {
-      name: "Santosh Neupane",
-      position: "Managing Director 取締役",
-      image: "./santosh.jpg",
-      description: "Expert in Japanese language education and JLPT preparation programs."
-    },
-
+  
   ];
 
   return (
