@@ -12,14 +12,14 @@ const AboutHrnPage = () => {
 
   return (
     <>
-      <Breadcrumb 
+      {/* <Breadcrumb 
         items={breadcrumbItems} 
         withContainer={true}
         title="Empowering nepali youth for global opportunities"
       />
             <AboutSection />
       <OurMissionVision />
-      <WhyChooseSection />
+      <WhyChooseSection /> */}
 
     </>
   );

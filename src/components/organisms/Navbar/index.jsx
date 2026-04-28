@@ -5,8 +5,6 @@ import Link from "next/link";
 import Logo from "../../atoms/logo";
 import { servicesData } from "../../../servicesData,";
 
-
-
 import {
   MapPin,
   Mail,
@@ -17,7 +15,6 @@ import {
   Linkedin,
   ChevronDown,
   Globe,
-
   Menu,
   X,
 } from "lucide-react";
@@ -90,79 +87,147 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center space-x-3">
-            <Facebook className="w-4 h-4  hover:text-white cursor-pointer" />
-            <Twitter className="w-4 h-4  hover:text-white cursor-pointer" />
-            <Instagram className="w-4 h-4  hover:text-white cursor-pointer" />
-            <Linkedin className="w-4 h-4  hover:text-white cursor-pointer" />
+            <Facebook className="w-4 h-4  hover:text-stonewhite cursor-pointer" />
+            <Twitter className="w-4 h-4  hover:text-stonewhite cursor-pointer" />
+            <Instagram className="w-4 h-4  hover:text-stonewhite cursor-pointer" />
+            <Linkedin className="w-4 h-4  hover:text-stonewhite cursor-pointer" />
           </div>
         </div>
       </div>
 
       {/* Main Navigation */}
-  <nav className="bg-primary sticky top-0 z-50 !text-[#0D1B2E] shadow-sm border-t-4 border-primary">
+      <nav className="bg-primary sticky top-0 z-50 !text-[#0D1B2E] shadow-sm border-t-4 border-primary">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-20">
             <Logo size="md" showText={false} />
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8 relative text-white">
+            <div className="hidden md:flex items-center space-x-8 relative text-stonewhite">
               {/* About */}
-             <div
-  className="relative"
-  onMouseEnter={() => setOpenDropdown("about")}
-  onMouseLeave={() => setOpenDropdown(null)}  // null instead of ""
->
-                <button className="flex items-center text-lg font-normal hover:text-white cursor-pointer">
+              <div
+                className="relative"
+                onMouseEnter={() => setOpenDropdown("about")}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                <button className="flex items-center text-lg font-normal hover:text-stonewhite cursor-pointer">
                   About <ChevronDown className="ml-1 w-4 h-4" />
                 </button>
-<AnimatePresence>
-  {openDropdown === "about" && (
-    <motion.div
-      variants={megaVariants}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      style={{ position: "absolute", top: "100%", left: 0, marginTop: "8px", zIndex: 50, display: "flex", flexDirection: "column", gap: "8px" }}
-    >
-      <motion.div variants={itemVariants}>
-        <Link href="/about/company" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text-white bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
-          会社概要
-        </Link>
-      </motion.div>
-      <motion.div variants={itemVariants}>
-        <Link href="/about/our-team" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text-white bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
-          役員紹介
-        </Link>
-      </motion.div>
-      <motion.div variants={itemVariants}>
-        <Link href="/" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text-white bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
-          日本語学校紹介
-        </Link>
-      </motion.div>
-      <motion.div variants={itemVariants}>
-        <Link href="/about/why-hrn" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text-white bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
-          なぜHRNグループ
-        </Link>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
+                <AnimatePresence>
+                  {openDropdown === "about" && (
+                    <motion.div
+                      variants={megaVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      style={{ position: "absolute", top: "100%", left: 0, marginTop: "8px", zIndex: 50, display: "flex", flexDirection: "column", gap: "8px" }}
+                    >
+                      <motion.div variants={itemVariants}>
+                        <Link href="/about/about-group" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text-stonewhite bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
+                          会社概要
+                        </Link>
+                      </motion.div>
+                      <motion.div variants={itemVariants}>
+                        <Link href="/about/our-team" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text- bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
+                          役員紹介
+                        </Link>
+                      </motion.div>
+
+
+   <motion.div variants={itemVariants}>
+                        <Link href="/about/company" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text- bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
+HRN グループとは                        </Link>
+                      </motion.div>
+
+                      <motion.div variants={itemVariants}>
+                        <Link href="/about/why-hrn" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text-stonewhite bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
+                          なぜHRNグループ
+                        </Link>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+              <div
+                className="relative"
+                onMouseEnter={() => setOpenDropdown("team")}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                <button className="flex items-center text-lg font-normal hover:text- cursor-pointer">
+                  Team <ChevronDown className="ml-1 w-4 h-4" />
+                </button>
+                <AnimatePresence>
+                  {openDropdown === "team" && (
+                    <motion.div
+                      variants={megaVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      style={{ position: "absolute", top: "100%", left: 0, marginTop: "8px", zIndex: 50, display: "flex", flexDirection: "column", gap: "8px" }}
+                    >
+                      <motion.div variants={itemVariants}>
+                        <Link href="/about/company" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text- bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
+                           送り出し機関紹介
+                        </Link>
+                      </motion.div>
+                      
+                      <motion.div variants={itemVariants}>
+                        <Link href="/about/our-team" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text- bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
+                         送り出し機関紹介
+                        </Link>
+                      </motion.div>
+                  
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
-              <Link href="/about/our-team" className="flex items-center text-lg font-normal text-  hover:text-white">
-                  Team 
-                </Link > 
+              {/* Team Dropdown */}
+              {/* <div
+                className="relative"
+                onMouseEnter={() => setOpenDropdown("team")}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                <button className="flex items-center text-lg font-normal hover:text- cursor-pointer">
+                  Team <ChevronDown className="ml-1 w-4 h-4" />
+                </button>
+                <AnimatePresence>
+                  {openDropdown === "team" && (
+                    <motion.div
+                      variants={megaVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      style={{ position: "absolute", top: "100%", left: 0, marginTop: "8px", zIndex: 50, display: "flex", flexDirection: "column", gap: "8px" }}
+                    >
+                      <motion.div variants={itemVariants}>
+                     
+                      </motion.div>
+                      <motion.div variants={itemVariants}>
+                        <Link href="/team/leadership" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 py-2 text-sm text- bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
+                        送り出し機関紹介
+                        </Link>
+                         <Link href="/team/leadership" style={{ display: "block", width: "fit-content", whiteSpace: "nowrap" }} className="font-semibold px-4 mt-2 py-2 text-sm text- bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 hover:bg-white/30 transition-colors">
+                                                          日本語学校紹介
+
+                        </Link>
+
+
+                      </motion.div>
+                    
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div> */}
 
               {/* Services */}
               <div
                 className="relative"
                 onMouseEnter={() => setOpenDropdown("services")}
-                onMouseLeave={() => setOpenDropdown("")}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
-                <button className="flex items-center text-lg font-normal text-  hover:text-white">
+                <button className="flex items-center text-lg font-normal hover:text-">
                   Services <ChevronDown className="ml-1 w-4 h-4" />
                 </button>
-                
 
                 <AnimatePresence>
                   {openDropdown === "services" && (
@@ -183,7 +248,7 @@ export default function Navbar() {
                             <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                               <item.icon className="w-5 h-5 text-primary" />
                             </div>
-                            <h4 className="text-gray-800 font-semibold group- hover:text-white transition-colors">
+                            <h4 className="text-gray-800 font-semibold group-hover:text- transition-colors">
                               {item.title}
                             </h4>
                           </div>
@@ -196,14 +261,14 @@ export default function Navbar() {
 
               <Link
                 href="/blog"
-                className="text-  hover:text-white text-lg font-normal"
+                className="hover:text- text-lg font-normal"
               >
-                Blogs
+                News & Updates
               </Link>
 
               <Link
                 href="/contact"
-                className="text-  hover:text-white text-lg font-normal"
+                className="hover:text- text-lg font-normal"
               >
                 Contact
               </Link>
@@ -211,21 +276,23 @@ export default function Navbar() {
 
             {/* Right Side */}
             <div className="flex items-center space-x-4">
-              <Link
-                href="https://system.hrnnepal.com"
-                className="hidden md:block px-4 py-2 font-normal  text-white rounded-md hover:bg-primary/90 transition"
-              >
-                Login
-              </Link>
+            
 
               <div className="hidden md:block relative" ref={languageRef}>
                 <div 
-                  className="flex items-center space-x-1 text-primary cursor-pointer  hover:text-white/80 transition-colors"
+                  className="flex items-center space-x-2 text-golden cursor-pointer  transition-colors"
                   onClick={() => setLanguageOpen(!languageOpen)}
                 >
-                  <Globe className="w-4 h-4" />
+                  <Globe className="w-4 h-4"  />
                   <ChevronDown className={`w-3 h-3 transition-transform ${languageOpen ? 'rotate-180' : ''}`} />
+                    <Link
+                href="https://system.hrnnepal.com"
+                className="hidden md:block px-4 py-2 font-bold text-[30px]  text-primary-light rounded-md hover:bg-primary/90 text-lg transition"
+              >
+                Login
+              </Link>
                 </div>
+                
 
                 {/* Language Dropdown */}
                 <AnimatePresence>
@@ -290,15 +357,23 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
 
+              {/* Mobile Login */}
+              <Link
+                href="https://system.hrnnepal.com"
+                className="md:hidden px-4 py-2 font-bold text-[30px] text-primary-light rounded-md hover:bg-primary/90 text-lg transition"
+              >
+                Login
+              </Link>
+
               {/* Mobile Hamburger */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 className="md:hidden focus:outline-none"
               >
                 {mobileOpen ? (
-                  <X className="w-6 h-6 text-gray-800" />
+                  <X className="w-6 h-6 text-white" />
                 ) : (
-                  <Menu className="w-6 h-6 text-gray-800" />
+                  <Menu className="w-6 h-6 text-white" />
                 )}
               </button>
             </div>
@@ -339,10 +414,41 @@ export default function Navbar() {
                         exit="exit"
                         className="pl-4 pt-2 space-y-2 text-gray-600"
                       >
-                        <Link href="/about/about-hrn">About HRN</Link>
-                        <Link href="/about/our-team">Our Team</Link>
-                        <Link href="/about/mission">Mission & Vision</Link>
-                        <Link href="/about/careers">Careers</Link>
+                        <Link href="/about/company" className="block py-1">会社概要</Link>
+                        <Link href="/about/our-team" className="block py-1">役員紹介</Link>
+                        <Link href="/about/why-hrn" className="block py-1">なぜHRNグループ</Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Team Mobile */}
+                <div>
+                  <button
+                    onClick={() =>
+                      toggleDropdown(openDropdown === "team" ? null : "team")
+                    }
+                    className="flex justify-between items-center w-full text- font-medium py-2"
+                  >
+                    Team <ChevronDown
+                      className={`w-4 h-4 transition-transform ${
+                        openDropdown === "team" ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {openDropdown === "team" && (
+                      <motion.div
+                        variants={mobileDropdownVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        className="pl-4 pt-2 space-y-2 text-gray-600"
+                      >
+                        <Link href="/about/our-team" className="block py-1">Our Team</Link>
+                        <Link href="" className="block py-1">送り出し機関紹介</Link>
+                   
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -373,7 +479,7 @@ export default function Navbar() {
                         className="pl-4 pt-2 space-y-2 text-gray-600"
                       >
                         {servicesData.map((item) => (
-                          <Link key={item.title} href={`/services/${item.id}`}>
+                          <Link key={item.title} href={`/services/${item.id}`} className="block py-1">
                             {item.title}
                           </Link>
                         ))}
@@ -384,19 +490,14 @@ export default function Navbar() {
 
                 {/* Static Links */}
                 <Link href="/blog" className="text- font-medium py-2">
-                  Blogs
+                  News & Updates
                 </Link>
                 <Link href="/contact" className="text- font-medium py-2">
                   Contact
                 </Link>
 
                 {/* Login Button */}
-                <Link
-                  href="/login"
-                  className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition w-fit"
-                >
-                  Login
-                </Link>
+            
               </div>
             </motion.div>
           )}

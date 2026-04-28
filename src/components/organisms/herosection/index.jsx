@@ -28,7 +28,7 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-6 sm:space-y-8 z-10">
           <h2
-  className="text-white w-full max-w-full lg:w-[760px]"
+  className="text-stonewhite w-full max-w-full lg:w-[760px]"
   style={{
     fontFamily: 'Plus Jakarta Sans',
     fontWeight: 600,
@@ -38,11 +38,11 @@ const HeroSection = () => {
     opacity: 0.9
   }}
 >
-  <span className="block text-white mb-2" style={{ fontSize: 'clamp(28px, 2vw, 60px)' }}>
+  <span className="block text-stonewhite mb-2" style={{ fontSize: 'clamp(28px, 2vw, 60px)' }}>
     ようこそ
   </span>
- <span className="block" style={{ color: '#FFFAF2' }}>
-  Welcome to HRN Group <br/> <span className="block text-white" style={{ fontSize: 'clamp(14px, 2vw, 18px)' }}>
+ <span className="block   ">
+  Welcome to HRN Group <br/> <span className="block text-stonewhite" style={{ fontSize: 'clamp(14px, 2vw, 18px)' }}>
 
 
 <span className=' p-1 text-right '>
@@ -56,13 +56,13 @@ const HeroSection = () => {
 
 <div className="flex gap-2">
   <div className="">
-    <h3 className='font-bold text-[#FFFAF2] text-lg'>企業理念</h3>
+    <h3 className='font-bold text-stonewhite text-lg'>企業理念</h3>
     <p>人を育み、力を活かし、価値を創造する。</p>
 
-    <h3 className='font-bold text-[#FFFAF2] mt-4 text-lg'>Mission（ミッション）</h3>
+    <h3 className='font-bold text-stonewhite mt-4 text-lg'>Mission（ミッション）</h3>
     <p>質の高い人材を育成し、日本企業へ円滑かつ責任ある送り出しを実現すること</p>
 
-    <h3 className='font-bold text-[#FFFAF2] mt-4 text-lg'>Vision（ビジョン）</h3>
+    <h3 className='font-bold text-stonewhite mt-4 text-lg'>Vision（ビジョン）</h3>
     <p>信頼と実績を礎に、日本とネパールを結ぶ架け橋として、持続的な価値を創造する存在へ</p>
   </div>
 </div>
@@ -71,14 +71,14 @@ const HeroSection = () => {
               <Link href="/contact">
                 <Button
                   variant="primary"
-                  className="text-sm sm:text-base lg:text-lg bg-white hover:!bg-primary hover:!text-white w-full sm:w-auto px-6 py-3"
+                  className="text-sm sm:text-base lg:text-lg bg-stonewhite hover:!bg-primary hover:!text-stonewhite w-full sm:w-auto px-6 py-3"
                   textColor="#041926"
                 >
                   Book Appointment
                 </Button>
               </Link>
 
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-stonewhite rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
               </div>
             </div>

@@ -40,8 +40,8 @@ export default function Aboutsection() {
   return (
     <section className="bg-primary">
       <div className="max-w-7xl mx-auto p-8 min-h-screen font-serif">
-        <h2 className="text-[#c9a84c] text-3xl font-bold mb-6 tracking-widest">会社概要</h2>
-        <table className="w-full border border-[#c9a84c] border-collapse">
+        <h2 className="text-golden text-3xl font-bold mb-6 tracking-widest">会社概要</h2>
+        <table className="w-full border border-golden border-collapse">
           <tbody>
             {rows.map((row, i) => (
               <tr key={i} className="border border-golden">

@@ -25,7 +25,7 @@ export default function Footer() {
       {/* Start Your Journey Section */}
     
       {/* Main Footer */}
-      <footer className="bg-[#DFF1FF] text-gray-800 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-14 md:py-16 lg:py-20 xl:py-24 overflow-x-hidden">
+      <footer className="bg-white text-gray-800 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-14 md:py-16 lg:py-20 xl:py-24 overflow-x-hidden">
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-10 sm:gap-y-12 md:gap-y-0 gap-x-6 sm:gap-x-8 md:gap-x-10 lg:gap-x-16 xl:gap-x-24">
         {/* Left Section */}

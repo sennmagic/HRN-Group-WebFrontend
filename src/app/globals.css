@@ -8,8 +8,8 @@
   --primary-light: #77CDFF;
   --secondary: #F95454;
   --secondary-dark: #C62E2E;
-  --golden: #c9a84c;
-
+  --golden: #AB800A;
+ --stonewhite:#FFF9DF;
   /* Consistent Spacing System */
   --section-padding: 4rem;
   --header-margin-bottom: 2rem;
@@ -22,6 +22,7 @@
   --font-sans: var(--font-plus-jakarta-sans);
 
   /* Custom Colors */
+    --color-stonewhite: var(--stonewhite);
   --color-primary: var(--primary);
   --color-primary-light: var(--primary-light);
   --color-secondary: var(--secondary);

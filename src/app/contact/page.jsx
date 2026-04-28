@@ -13,16 +13,16 @@ const ContactPage = () => {
   return (
     <>
   
-      <main className="py-16">
+      <main className="py-16 bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
 
           {/* Contact Content Section */}
           <div className="grid md:grid-cols-2 gap-12 mb-24">
             {/* Left Column - Contact Information */}
             <div className="space-y-8">
-    <Header text="Contact Us" />
+    <Header text="Contact Us"  className='!text-white'/>
               
-              <p className="text-stone-800 text-lg leading-relaxed">
+              <p className="text-white text-lg leading-relaxed">
                 Whether you’re looking to launch a new website, streamline your operations, or need guidance on your digital transformation journey — we’re here to help. Fill out the form, and one of our tech specialists will be in touch shortly.
               </p>
 
@@ -33,10 +33,10 @@ const ContactPage = () => {
                   <FaPhone className="text-2xl text-blue-500 hover:opacity-75 transition-opacity mr-4" />
                   </div>
                   <div className="flex flex-col justify-center items-start gap-2">
-                    <div className="text-stone-800 text-xs font-normal leading-none tracking-tight">
+                    <div className="text-white text-xs font-normal leading-none tracking-tight">
                       Instant Support & Project Queries
                     </div>
-                    <div className="text-stone-800 text-sm font-semibold leading-tight">
+                    <div className="text-white text-sm font-semibold leading-tight">
                     014534455
                     </div>
                   </div>
@@ -48,10 +48,10 @@ const ContactPage = () => {
                   <FaEnvelope className="text-2xl text-blue-500 hover:opacity-75 transition-opacity mr-4" />
                   </div>
                   <div className="flex flex-col justify-center items-start gap-2">
-                    <div className="text-stone-800 text-xs font-normal leading-none tracking-tight">
+                    <div className="text-white text-xs font-normal leading-none tracking-tight">
                       General Enquiries & Collaborations
                     </div>
-                    <div className="text-stone-800 text-sm font-semibold leading-tight">
+                    <div className="text-white text-sm font-semibold leading-tight">
                     info@hrnnepal.com
                     </div>
                   </div>
@@ -64,9 +64,9 @@ const ContactPage = () => {
                   </div>
                   <div className="flex flex-col justify-center items-start gap-2">
                   
-                    <div className="text-stone-800 text-sm font-semibold leading-tight">
+                    <div className="text-white text-sm font-semibold leading-tight">
                   
-                      <div className="text-stone-800 text-xs font-normal leading-none tracking-tight">
+                      <div className="text-white text-xs font-normal leading-none tracking-tight">
                         Office Center - Nepal
                       </div>
                       
